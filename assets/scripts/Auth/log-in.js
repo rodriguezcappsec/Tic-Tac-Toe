@@ -1,4 +1,4 @@
-let token = "";
+import token from "./token.js";
 let logIn = () => {
   $("#log-In").on("submit", event => {
     let serialization = $("#log-In").serializeArray();
@@ -14,8 +14,8 @@ let logIn = () => {
       }
     })
       .then(function(data) {
-        token = data.user.token;
-        console.log(data.user);
+        token.user = data.user;
+        console.log(token);
       })
       .catch(() => {
         console.log("Error");
@@ -23,4 +23,4 @@ let logIn = () => {
   });
 };
 
-export default { logIn, token };
+export default { logIn };
