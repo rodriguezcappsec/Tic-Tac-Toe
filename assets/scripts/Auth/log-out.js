@@ -1,19 +1,24 @@
+import config from "../store.js";
+import apiUrl from "../config.js";
 
 let logOut = () => {
-    $("#log-Out").on("submit", event => {
-        let serialization = $("#log-In").serializeArray();
-        event.preventDefault();
-        $.ajax({
-            url:"http://tic-tac-toe.wdibos.com/sign-out",
-            method: 'DELETE',
-            headers: {
-                Authorization: 'Token token=' + store.user.token
-            }
-        }).then(() => {
-            alert("user loged out");
-            }).catch(() => {
-          console.log("error loging out user");
-            
-        })
-    });
+  $("#log-out").on("submit", event => {
+    event.preventDefault();
+    console.log(config.user.token)
+    $.ajax({
+        url: apiUrl.apiUrl + "/sign-out",
+        method: "DELETE",
+        headers: {
+          Authorization: "Token token="+config.user.token
+        }
+      })
+      .then(data => {
+        alert("user loged out", data);
+      })
+      .catch((data) => {
+        console.log("error loging out user", config.user.token);
+      });
+  });
 };
+
+export default logOut;

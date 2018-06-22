@@ -2,8 +2,8 @@
 import winner from "./winner.js";
 import boardToArray from "./boardToArray.js";
 import createBoard from "./createBoard.js";
-import logIn from "../Auth/log-in.js";
-import token from "../Auth/token.js";
+// import logIn from "../Auth/log-in.js";
+import token from "../store.js";
 
 let ticTacToe = () => {
   //Array where board will be store to determine the winner
@@ -15,18 +15,17 @@ let ticTacToe = () => {
   //Click event to each cell in the table
   let listenerToEachTd = () => {
     document.querySelectorAll("#tictactoe td").forEach(e =>
-      e.addEventListener("click", function() {
-        this.innerText === ""
-          ? //Boolean Switcher, TD text (O= True, X=False)
-            ((boolSwitcher = !boolSwitcher),
-            boolSwitcher === true
-              ? (this.innerText = "O")
-              : (this.innerText = "X"),
+      e.addEventListener("click", function () {
+        this.innerText === "" ? //Boolean Switcher, TD text (O= True, X=False)
+          ((boolSwitcher = !boolSwitcher),
+            boolSwitcher === true ?
+            (this.innerText = "O") :
+            (this.innerText = "X"),
             //Every time the user clicks, the board parses into a multidimensional array
             boardToArray(boardStorage),
             //Alerting the winner
-            winner(boardStorage, boolSwitcher))
-          : "";
+            winner(boardStorage, boolSwitcher)) :
+          "";
         //Clearing the board after user clicks, and the winner is determined
         boardStorage = [];
       })
@@ -35,13 +34,16 @@ let ticTacToe = () => {
 
   //Showing the board based on the user input
   let showBoard = () => {
-    document.getElementById("showBoard").addEventListener("click", function() {
+    document.getElementById("showBoard").addEventListener("click", function () {
       let dimension = document.getElementById("dimension").value;
-      createBoard(Number(dimension), listenerToEachTd);
+      if (typeof token.user != 'undefined') {
+        createBoard(Number(dimension), listenerToEachTd);
+      } else {
+        console.log(token);
+        console.log("not yet");
+      }
     });
   };
-  // if (token.user.token) {
-    showBoard();
-  // }
+  showBoard();
 };
 export default ticTacToe;

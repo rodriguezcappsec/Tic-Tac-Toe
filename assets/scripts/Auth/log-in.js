@@ -1,21 +1,24 @@
-import token from "./token.js";
+// import token from "./token.js";
+import apiUrl from "../config.js";
+import config from "../store.js";
 let logIn = () => {
   $("#log-In").on("submit", event => {
     let serialization = $("#log-In").serializeArray();
     event.preventDefault();
     $.ajax({
-      url: "http://tic-tac-toe.wdibos.com/sign-in",
-      method: "POST",
-      data: {
-        credentials: {
-          email: serialization[0].value,
-          password: serialization[1].value
+        url: apiUrl.apiUrl + "/sign-in",
+        method: "POST",
+        data: {
+          credentials: {
+            email: serialization[0].value,
+            password: serialization[1].value
+          }
         }
-      }
-    })
-      .then(function(data) {
-        token.user = data.user;
-        console.log(token);
+      })
+      .then((data) => {
+        config.user = data.user;
+        // window.location.href = "/assets/Views/loged.html";
+        console.log(config.user.token);
       })
       .catch(() => {
         console.log("Error");
@@ -23,4 +26,4 @@ let logIn = () => {
   });
 };
 
-export default { logIn };
+export default logIn;

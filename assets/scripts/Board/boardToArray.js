@@ -11,11 +11,11 @@ let boardToArray = boardStorage => {
     ++count;
 
     //Ternary condition, if the counter is equal the dimension
-    count.toString() === document.getElementById("dimension").value
-      ? (boardStorage.push(tempTds.split("")), (tempTds = ""), (count = 0))
-      : count;
+    count.toString() === document.getElementById("dimension").value ?
+      (boardStorage.push(tempTds.split("")), (tempTds = ""), (count = 0)) :
+      count;
   }
-  // console.log(boardStorage);
+  console.log(boardStorage);
 };
 
 export default boardToArray;
