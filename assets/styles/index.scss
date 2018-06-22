@@ -1,2 +1,25 @@
-$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+section,
+table {
+  text-align: center;
+  margin: 0 auto;
+  color: rgb(46, 46, 46);
+  font-family: Helvetica, Arial, sans-serif;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td:hover {
+  cursor: pointer;
+}
+td {
+  /* border: 1px solid rgb(0, 110, 255); */
+  border: 1px solid rgb(255, 0, 0);
+  height: 61px;
+  width: 70px;
+  text-align: center;
+  font-size: 18px;
+  /* background: rgb(247, 247, 255); */
+  font-weight: bold;
+}

@@ -1,30 +1,30 @@
-  //Creating the Board
-let createBoard = dimension => {
-    if (dimension > 15) {
-        alert(`Board is larger than 15 don't do that...`);
-    } else if (dimension < 3 || dimension < 0) {
-        alert("Dimension have to be greater then 3 and not less the 0");
-    } else if (/[A - Za - z]/g.exec(dimension)) {
-        alert("Only numerical values are accepted!");
-    } else {
-        let tr, td;
-        let table = document.getElementById("tictactoe");
-        while (table.firstChild) {
-            table.removeChild(table.firstChild);
-        }
-        for (let trIndex = 1; trIndex <= dimension; ++trIndex) {
-            tr = document.createElement("tr");
-            tr.id = trIndex;
-            for (let tdIndex = 1; tdIndex <= dimension; ++tdIndex) {
-                td = document.createElement("td");
-                td.id = `${trIndex}-${tdIndex}`;
-                td.className = `${trIndex}-td-${tdIndex}`;
-                tr.appendChild(td);
-            }
-            table.appendChild(tr);
-        }
-        //Add click event to each TD, right after the table is created.
+let createBoard = (dimension, tdEvents) => {
+  if (dimension > 15) {
+    alert(`Board is larger than 15 don't do that...`);
+  } else if (dimension < 3 || dimension < 1) {
+    alert("Dimension have to be greater then 3 and not less the 0");
+  } else if (/[A - Za - z]/g.exec(dimension)) {
+    alert("Only numerical values are accepted!");
+  } else {
+    let tr, td;
+    let table = document.getElementById("tictactoe");
+    while (table.firstChild) {
+      table.removeChild(table.firstChild);
     }
+    for (let trIndex = 1; trIndex <= dimension; ++trIndex) {
+      tr = document.createElement("tr");
+      tr.id = trIndex;
+      for (let tdIndex = 1; tdIndex <= dimension; ++tdIndex) {
+        td = document.createElement("td");
+        td.id = `${trIndex}-${tdIndex}`;
+        td.className = `${trIndex}-td-${tdIndex}`;
+        tr.appendChild(td);
+      }
+      table.appendChild(tr);
+    }
+    //Add click event to each TD, right after the table is created.
+    tdEvents();
+  }
 };
 
-module.exports = createBoard;
+export default createBoard;
