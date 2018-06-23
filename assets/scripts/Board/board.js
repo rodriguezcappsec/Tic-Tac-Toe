@@ -7,47 +7,42 @@ import gameState from "./gameState.js";
 
 var boardStorage = []; //Array where board will be store to determine the winner
 let boolSwitcher = false; //Variable to switch everytime the user clicks (O= True, X=False)
-
+let gameOver = false;
 let clickCounter = 0; //Counter to determine if it is a raw game
 let playerX = "X";
 let playerO = "O";
+
 let ticTacToe = () => {
   let listenerToEachTd = () => {
     $("#tictactoe td").on("click", event => {
       if (event.target.innerText === "") {
         //Boolean Switcher, TD text (O= True, X=False)
         boolSwitcher = !boolSwitcher;
-        boolSwitcher === true
-          ? (console.log(`Player X turn`), (event.target.innerText = playerX))
-          : (console.log(`Player O turn`), (event.target.innerText = playerO)),
+        boolSwitcher === true ?
+          (console.log(`Player X turn`), (event.target.innerText = playerX)) :
+          (console.log(`Player O turn`), (event.target.innerText = playerO)),
           clickCounter++;
-
         boardToArray(boardStorage); //Every time the user clicks, the board parses into a multidimensional array
         winner(boardStorage);
-        gameState(boardStorage, clickCounter);
+        gameState(boardStorage, gameOver);
       }
-      console.log(clickCounter);
-
       boardStorage = []; //Clearing the board after user clicks, and the winner is determined
     });
   };
-
   //Showing the board based on the user input
   let showBoard = () => {
     $("#showBoard").on("click", () => {
       clickCounter = 0;
       boolSwitcher = false;
       let dimension = document.getElementById("dimension").value;
-      // if (typeof config.user != "undefined") {
       createBoard(Number(dimension), listenerToEachTd);
-      // } else {
-      //   console.log(config);
-      //   console.log("not yet");
-      // }
     });
   };
   showBoard();
 };
+
+
+
 
 let winner = arr => {
   var hztlWinner = true;
@@ -63,10 +58,12 @@ let winner = arr => {
     if (hztlWinner) {
       clickCounter = 0;
       boolSwitcher = false;
+      gameOver = true;
       setTimeout(() => {
         document
           .querySelectorAll("#tictactoe td")
           .forEach(e => (e.innerHTML = ""));
+        gameOver = false;
       }, 1000);
       alert(`The winner is : Player ${arr[index][0]} | Row ${index + 1}`);
     }
@@ -78,23 +75,24 @@ let winner = arr => {
     for (let y = 0; y < arr.length; y++) {
       for (let x = 0; x < arr.length; x++) {
         vtclChecker.push(arr[x][y]);
-        vtclChecker.length === arr.length
-          ? ((vtclWinner = vtclChecker.every(
-              v => v == vtclChecker[0] && vtclChecker[0] !== " "
-            )),
-            vtclWinner
-              ? ((clickCounter = 0),
-                alert(
-                  `The winner is : Player ${vtclChecker[0]} | Column ${y + 1}`
-                ),
-                (boolSwitcher = false),
-                setTimeout(() => {
-                  document
-                    .querySelectorAll("#tictactoe td")
-                    .forEach(e => (e.innerHTML = ""));
-                }, 1000))
-              : "")
-          : "";
+        if (vtclChecker.length === arr.length) {
+          (vtclWinner = vtclChecker.every(
+            v => v == vtclChecker[0] && vtclChecker[0] !== " "
+          ));
+          if (vtclWinner) {
+            clickCounter = 0;
+            alert(`The winner is : Player ${vtclChecker[0]} | Column ${y + 1}`);
+            boolSwitcher = false;
+            gameOver = true;
+            // console.log(gameOver);
+            setTimeout(() => {
+              document
+                .querySelectorAll("#tictactoe td")
+                .forEach(e => (e.innerHTML = ""));
+              gameOver = false;
+            }, 1000);
+          }
+        }
       }
       vtclChecker = [];
     }
@@ -104,21 +102,21 @@ let winner = arr => {
     let dgnlChecker = [];
     for (let index = 0; index < arr.length; index++) {
       dgnlChecker.push(arr[index][index]);
-      dgnlChecker.length === arr.length
-        ? ((dgnlWinner = dgnlChecker.every(
-            v => v == dgnlChecker[0] && dgnlChecker[0] !== " "
-          )),
-          dgnlWinner
-            ? ((clickCounter = 0),
-              alert(`The winner is : Player ${dgnlChecker[0]} | Diagonal ${1}`),
-              (boolSwitcher = false),
-              setTimeout(() => {
-                document
-                  .querySelectorAll("#tictactoe td")
-                  .forEach(e => (e.innerHTML = ""));
-              }, 1000))
-            : "")
-        : "";
+      if (dgnlChecker.length === arr.length) {
+        dgnlWinner = dgnlChecker.every(v => v == dgnlChecker[0] && dgnlChecker[0] !== " ");
+        if (dgnlWinner) {
+          clickCounter = 0;
+          alert(`The winner is : Player ${dgnlChecker[0]} | Diagonal ${1}`);
+          boolSwitcher = false;
+          gameOver = true;
+          setTimeout(() => {
+            document
+              .querySelectorAll("#tictactoe td")
+              .forEach(e => (e.innerHTML = ""));
+            gameOver = false;
+          }, 1000);
+        }
+      }
     }
   }
   //Second diagonal Checking
@@ -128,24 +126,26 @@ let winner = arr => {
     for (let x = 0; x < arr.length; ++x) {
       secondDgnlChecker.push(arr[x][y]);
       --y;
-      secondDgnlChecker.length === arr.length
-        ? ((y = arr.length - 1),
-          (secondDgnlWinner = secondDgnlChecker.every(
-            v => v == secondDgnlChecker[0] && secondDgnlChecker[0] !== " "
-          )),
-          secondDgnlWinner
-            ? ((clickCounter = 0),
-              alert(
-                `The winner is : Player ${secondDgnlChecker[0]} | Diagonal ${2}`
-              ),
-              (boolSwitcher = false),
-              setTimeout(() => {
-                document
-                  .querySelectorAll("#tictactoe td")
-                  .forEach(e => (e.innerHTML = ""));
-              }, 1000))
-            : "")
-        : "";
+      if (secondDgnlChecker.length === arr.length) {
+        y = arr.length - 1;
+        (secondDgnlWinner = secondDgnlChecker.every(
+          v => v == secondDgnlChecker[0] && secondDgnlChecker[0] !== " "
+        ));
+        if (secondDgnlWinner) {
+          clickCounter = 0;
+          alert(
+            `The winner is : Player ${secondDgnlChecker[0]} | Diagonal ${2}`
+          );
+          boolSwitcher = false;
+          gameOver = true;
+          setTimeout(() => {
+            document
+              .querySelectorAll("#tictactoe td")
+              .forEach(e => (e.innerHTML = ""));
+            gameOver = false;
+          }, 1000);
+        }
+      }
     }
   }
   if (
@@ -155,13 +155,16 @@ let winner = arr => {
     vtclWinner == false &&
     dgnlWinner == false
   ) {
+    gameOver = false;
     alert("raw");
     clickCounter = 0;
     setTimeout(() => {
       document
         .querySelectorAll("#tictactoe td")
         .forEach(e => (e.innerHTML = ""));
+      gameOver = false;
     }, 1000);
   }
 };
+
 export default ticTacToe;

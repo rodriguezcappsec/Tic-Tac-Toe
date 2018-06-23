@@ -1,9 +1,19 @@
 import config from "../store.js";
 import apiUrl from "../config.js";
 
+
+let logOutEvents = () => {
+  delete config.user;
+  $("#theGame").html('');
+  $("#loging-Out").html('');
+  $("#userAuthentication").show();
+  $("#menu").hide();
+  $("#userLoged").text('');
+}
+
 let logOut = () => {
-  $("#log-out").on("submit", event => {
-    event.preventDefault();
+  $("#log-out").on("click", () => {
+    // event.preventDefault();
     $.ajax({
         url: apiUrl.apiUrl + "/sign-out",
         method: "DELETE",
@@ -12,11 +22,10 @@ let logOut = () => {
         }
       })
       .then(() => {
-        delete config.user 
-        console.log("user loged out", config.user);
+        logOutEvents();
       })
       .catch((data) => {
-        console.log("error loging out user");
+        alert("error loging out user");
       });
   });
 };

@@ -1,29 +1,29 @@
-import token from "../store.js";
+import config from "../store.js";
 import apiUrl from "../config.js";
 
-let createGame = (board, clickCounts) => {
-  let isOver = $("#dimension").val() * $("#dimension").val();
-  console.log(isOver);
-
+let createGame = (board, gameOver) => {
+  console.log(board);
+  console.log(gameOver);
   $.ajax({
-    url: apiUrl.apiUrl + "/games",
-    method: "POST",
-    data: {
-      games: [
-        {
+      url: apiUrl.apiUrl + "/games",
+      method: "POST",
+      headers: {
+        Authorization: "Token token=" + config.user.token
+      },
+      data: {
+        game: {
           cells: board,
-          over: clickCounts == isOver ? true : false,
+          over: gameOver,
           player_x: {
-            id: token.user.id,
-            email: token.user.email
+            id: config.user.id,
+            email: config.user.email
           },
           player_o: null
         }
-      ]
-    }
-  })
+      }
+    })
     .then(data => {
-      console.log(`Game Saved! ${data.games[0].id}`);
+      console.log(`Game Saved! ${JSON.stringify(data.game.cells)}`);
     })
     .catch(() => {
       console.log("Game couldn't be saved!");

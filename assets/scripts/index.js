@@ -13,8 +13,10 @@ import changePassword from "./Auth/change-password.js";
 import config from "./store.js";
 $(() => {
   logIn();
-  logOut();
+  $("#menu").hide();
+  // logOut();
   changePassword();
   signUp();
-  ticTacToe();
+  // ticTacToe.ticTacToe();
+  // ticTacToe.showBoard();
 });
