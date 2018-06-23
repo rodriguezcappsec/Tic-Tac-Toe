@@ -1,3 +1,4 @@
+//Creating the table
 let createBoard = (dimension, tdEvents) => {
   if (dimension > 15) {
     alert(`Board is larger than 15 don't do that...`);

@@ -4,7 +4,6 @@ import apiUrl from "../config.js";
 let logOut = () => {
   $("#log-out").on("submit", event => {
     event.preventDefault();
-    console.log(config.user.token)
     $.ajax({
         url: apiUrl.apiUrl + "/sign-out",
         method: "DELETE",
@@ -12,12 +11,12 @@ let logOut = () => {
           Authorization: "Token token=" + config.user.token
         }
       })
-      .then(data => {
-        config.user = null;
-        alert("user loged out", data);
+      .then(() => {
+        delete config.user 
+        console.log("user loged out", config.user);
       })
       .catch((data) => {
-        console.log("error loging out user", config.user.token);
+        console.log("error loging out user");
       });
   });
 };
