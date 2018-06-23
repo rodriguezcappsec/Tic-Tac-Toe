@@ -8,7 +8,9 @@ let changePassword = () => {
     $.ajax({
         url: apiUrl.apiUrl + '/change-password',
         method: 'PATCH',
-        header: "Content-Type: application/json",
+        headers: {
+          Authorization: "Token token=" + config.user.token
+        },
         data: {
           passwords: {
             old: serialization[0].value,
@@ -17,12 +19,10 @@ let changePassword = () => {
         },
       })
       .then((data) => {
-        // config.user = data.user;
-        // window.location.href = "/assets/Views/loged.html";
-        console.log(data);
+        alert("password changed!")
       })
       .catch(() => {
-        console.log("Error");
+        alert("Error changing password");
       });
   });
 }

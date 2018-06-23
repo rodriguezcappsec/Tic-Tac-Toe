@@ -9,10 +9,11 @@ let logOut = () => {
         url: apiUrl.apiUrl + "/sign-out",
         method: "DELETE",
         headers: {
-          Authorization: "Token token="+config.user.token
+          Authorization: "Token token=" + config.user.token
         }
       })
       .then(data => {
+        config.user = null;
         alert("user loged out", data);
       })
       .catch((data) => {
