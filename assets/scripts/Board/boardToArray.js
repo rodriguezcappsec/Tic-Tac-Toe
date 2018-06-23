@@ -12,7 +12,7 @@ let boardToArray = boardStorage => {
       ? (boardStorage.push(tempTds.split("")), (tempTds = ""), (count = 0))
       : count;
   }
-  console.log(boardStorage);
+  // console.log(boardStorage);
 };
 
 export default boardToArray;

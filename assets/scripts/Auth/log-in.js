@@ -18,7 +18,7 @@ let logIn = () => {
       .then((data) => {
         config.user = data.user;
         // window.location.href = "/assets/Views/loged.html";
-        console.log(config.user.token);
+        console.log(config.user);
       })
       .catch(() => {
         console.log("Error");

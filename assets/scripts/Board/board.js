@@ -3,6 +3,7 @@
 import boardToArray from "./boardToArray.js";
 import createBoard from "./createBoard.js";
 import token from "../store.js";
+import gameState from "./gameState.js";
 
 var boardStorage = []; //Array where board will be store to determine the winner
 let boolSwitcher = false; //Variable to switch everytime the user clicks (O= True, X=False)
@@ -20,8 +21,10 @@ let ticTacToe = () => {
           ? (console.log(`Player X turn`), (event.target.innerText = playerX))
           : (console.log(`Player O turn`), (event.target.innerText = playerO)),
           clickCounter++;
+
         boardToArray(boardStorage); //Every time the user clicks, the board parses into a multidimensional array
         winner(boardStorage);
+        gameState(boardStorage, clickCounter);
       }
       console.log(clickCounter);
 
