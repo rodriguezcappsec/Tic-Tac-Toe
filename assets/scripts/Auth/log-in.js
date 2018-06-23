@@ -6,19 +6,27 @@ let logIn = () => {
     let serialization = $("#log-In").serializeArray();
     event.preventDefault();
     $.ajax({
-        url: apiUrl.apiUrl + "/sign-in",
-        method: "POST",
-        data: {
-          credentials: {
-            email: serialization[0].value,
-            password: serialization[1].value
-          }
+      url: apiUrl.apiUrl + "/sign-in",
+      method: "POST",
+      data: {
+        credentials: {
+          email: serialization[0].value,
+          password: serialization[1].value
         }
-      })
-      .then((data) => {
+      }
+    })
+      .then(data => {
         config.user = data.user;
-        // window.location.href = "/assets/Views/loged.html";
-        console.log(config.user);
+        alert("Log-In succesful");
+        $("#logedUserTictacToe").html(`
+        <div class="userInput">
+           <input type="text" id="dimension" placeholder="Insert Tic Tac Toe dimension" class="theDimension">
+            <button class="createTTTBody" id="showBoard">Generate</button>
+        </div>
+        <table id="tictactoe" class="ttt">
+
+        </table>
+        `);
       })
       .catch(() => {
         console.log("Error");

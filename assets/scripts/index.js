@@ -7,9 +7,10 @@
 // require('./example')
 import logIn from "./Auth/log-in.js";
 import ticTacToe from "./Board/board";
-import logOut from './Auth/log-out.js';
+import logOut from "./Auth/log-out.js";
 import signUp from "./Auth/sign-up.js";
 import changePassword from "./Auth/change-password.js";
+import config from "./store.js";
 $(() => {
   logIn();
   logOut();

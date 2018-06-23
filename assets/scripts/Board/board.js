@@ -2,7 +2,7 @@
 
 import boardToArray from "./boardToArray.js";
 import createBoard from "./createBoard.js";
-import token from "../store.js";
+import config from "../store.js";
 import gameState from "./gameState.js";
 
 var boardStorage = []; //Array where board will be store to determine the winner
@@ -38,12 +38,12 @@ let ticTacToe = () => {
       clickCounter = 0;
       boolSwitcher = false;
       let dimension = document.getElementById("dimension").value;
-      if (typeof token.user != "undefined") {
-        createBoard(Number(dimension), listenerToEachTd);
-      } else {
-        console.log(token);
-        console.log("not yet");
-      }
+      // if (typeof config.user != "undefined") {
+      createBoard(Number(dimension), listenerToEachTd);
+      // } else {
+      //   console.log(config);
+      //   console.log("not yet");
+      // }
     });
   };
   showBoard();

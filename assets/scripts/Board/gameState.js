@@ -2,16 +2,15 @@ import token from "../store.js";
 import apiUrl from "../config.js";
 
 let createGame = (board, clickCounts) => {
-    let isOver = $("#dimension").val() * $("#dimension").val();
-    console.log(isOver);
-    
+  let isOver = $("#dimension").val() * $("#dimension").val();
+  console.log(isOver);
+
   $.ajax({
     url: apiUrl.apiUrl + "/games",
     method: "POST",
     data: {
       games: [
         {
-        //   id: 1,
           cells: board,
           over: clickCounts == isOver ? true : false,
           player_x: {
