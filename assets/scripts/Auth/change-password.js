@@ -1,10 +1,10 @@
 import apiUrl from "../config.js";
 import config from "../store.js";
+
 let changePassword = () => {
   $("#change-password").on("submit", event => {
     let serialization = $("#change-password").serializeArray();
     event.preventDefault();
-    console.log(config.user.token);
     $.ajax({
         url: apiUrl.apiUrl + '/change-password',
         method: 'PATCH',
@@ -19,7 +19,10 @@ let changePassword = () => {
         },
       })
       .then((data) => {
-        alert("password changed!")
+        $('#change-password').trigger('reset');
+        $('#closeModal').trigger('click');
+        $("#log-out").trigger();
+        alert("password changed!");
       })
       .catch(() => {
         alert("Error changing password");

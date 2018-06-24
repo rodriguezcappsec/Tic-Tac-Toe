@@ -12,11 +12,10 @@ import signUp from "./Auth/sign-up.js";
 import changePassword from "./Auth/change-password.js";
 import config from "./store.js";
 $(() => {
-  logIn();
+  logIn.logIn();
   $("#menu").hide();
-  // logOut();
+  $("#changePasswords").hide();
   changePassword();
   signUp();
-  // ticTacToe.ticTacToe();
-  // ticTacToe.showBoard();
+
 });

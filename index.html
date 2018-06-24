@@ -16,30 +16,11 @@
 </head>
 
 <body>
-  <!-- <nav id="userAuthentication" class="navbar navbar-default">
-
-    <div class="container-fluid">
-      <div class="navbar-header">
-
-        <form class="form-inline" id="change-password">
-          <div class="form-group">
-            <input type="password" name="passwords[old]" class="form-control" id="what" placeholder="Old Password">
-          </div>
-          <div class="form-group">
-            <input type="password" name="passwords[new]" class="form-control" id="ever" placeholder="New Password">
-          </div>
-          <input id="changePassword" type="submit" class="btn btn-default" value="Change Password" />
-        </form>
-
-      </div>
-    </div>
-  </nav> -->
-
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Tic Tac Toe</a>
+        <a class="navbar-brand" href="#">Welcome to Tic Tac Toe</a>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -51,7 +32,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu
               <span class="caret"></span>
             </a>
-            <ul class="dropdown-menu" id="loging-Out">
+            <ul class="dropdown-menu" id="user-menu">
             </ul>
           </li>
         </ul>
@@ -60,9 +41,12 @@
     </div>
     <!-- /.container-fluid -->
   </nav>
+
   <div class="container-fluid">
     <!-- col-md-3 shadow top-100 -->
-    <div id="theGame"></div>
+    <div id="theGame">
+
+    </div>
 
     <div class="justify-content-center shadow align-items-center container top-100" id="userAuthentication">
       <div class="bs-example bs-example-tabs" data-example-id="togglable-tabs">
@@ -87,11 +71,6 @@
               <label class="label-form">Confirm password</label>
               <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Confirm password">
               <br />
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="remember-me"> Remember me
-                </label>
-              </div>
               <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
               <br />
             </form>
@@ -116,7 +95,36 @@
     </div>
   </div>
 
-
+  <div id="changePasswords">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="exampleModalLabel">Change Password</h2>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="change-password">
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Old Password:</label>
+                <input type="password" name="passwords[old]" class="form-control" id="oldPass" placeholder="Old Password">
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">New Password:</label>
+                <input type="password" name="passwords[new]" class="form-control" id="newPass" placeholder="New Password">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="closeModal" data-dismiss="modal">Close</button>
+            <button id="changePassword" type="submit" class="btn btn-primary">Change Password</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

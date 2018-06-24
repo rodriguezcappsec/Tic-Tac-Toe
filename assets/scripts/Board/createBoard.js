@@ -1,9 +1,9 @@
 //Creating the table
 let createBoard = (dimension, tdEvents) => {
-  if (dimension > 15) {
-    alert(`Board is larger than 15 don't do that...`);
+  if (dimension > 7) {
+    alert(`Board limit size is 7`);
   } else if (dimension < 3 || dimension < 1) {
-    alert("Dimension have to be greater then 3 and not less the 0");
+    alert("Dimension has to be greater then 3 and not less the 0");
   } else if (/[A - Za - z]/g.exec(dimension)) {
     alert("Only numerical values are accepted!");
   } else {

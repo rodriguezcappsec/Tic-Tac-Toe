@@ -5,7 +5,7 @@ import apiUrl from "../config.js";
 let logOutEvents = () => {
   delete config.user;
   $("#theGame").html('');
-  $("#loging-Out").html('');
+  $("#user-menu").html('');
   $("#userAuthentication").show();
   $("#menu").hide();
   $("#userLoged").text('');

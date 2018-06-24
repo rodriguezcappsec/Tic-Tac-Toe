@@ -29,4 +29,5 @@ let createGame = (board, gameOver) => {
       console.log("Game couldn't be saved!");
     });
 };
+ 
 export default createGame;
