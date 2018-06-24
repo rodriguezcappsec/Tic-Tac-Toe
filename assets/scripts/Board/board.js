@@ -4,6 +4,7 @@ import boardToArray from "./boardToArray.js";
 import createBoard from "./createBoard.js";
 import config from "../store.js";
 import gameState from "./gameState.js";
+import modalAlert from "../UIBehavior/modalAlert.js";
 
 var boardStorage = []; //Array where board will be store to determine the winner
 let boolSwitcher = false; //Variable to switch everytime the user clicks (O= True, X=False)
@@ -65,7 +66,7 @@ let winner = arr => {
           .forEach(e => (e.innerHTML = ""));
         gameOver = false;
       }, 1000);
-      alert(`The winner is : Player ${arr[index][0]} | Row ${index + 1}`);
+      modalAlert(`The winner is : Player ${arr[index][0]} --> Row ${index + 1}`, "Congratulations!!","true");
     }
     ("");
   }
@@ -81,7 +82,7 @@ let winner = arr => {
           ));
           if (vtclWinner) {
             clickCounter = 0;
-            alert(`The winner is : Player ${vtclChecker[0]} | Column ${y + 1}`);
+            modalAlert(`The winner is : Player ${vtclChecker[0]} --> Column ${y + 1}`, "Congratulations!!", true);
             boolSwitcher = false;
             gameOver = true;
             // console.log(gameOver);
@@ -106,7 +107,7 @@ let winner = arr => {
         dgnlWinner = dgnlChecker.every(v => v == dgnlChecker[0] && dgnlChecker[0] !== " ");
         if (dgnlWinner) {
           clickCounter = 0;
-          alert(`The winner is : Player ${dgnlChecker[0]} | Diagonal ${1}`);
+          modalAlert(`The winner is : Player ${dgnlChecker[0]} --> Diagonal ${1}`, "Congratulations!!", true);
           boolSwitcher = false;
           gameOver = true;
           setTimeout(() => {
@@ -133,8 +134,9 @@ let winner = arr => {
         ));
         if (secondDgnlWinner) {
           clickCounter = 0;
-          alert(
-            `The winner is : Player ${secondDgnlChecker[0]} | Diagonal ${2}`
+          modalAlert(
+            `The winner is : Player ${secondDgnlChecker[0]} --> Diagonal ${2}`,
+            "Congratulations!!", true
           );
           boolSwitcher = false;
           gameOver = true;

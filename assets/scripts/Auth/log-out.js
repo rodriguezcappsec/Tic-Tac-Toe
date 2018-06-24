@@ -1,7 +1,6 @@
 import config from "../store.js";
 import apiUrl from "../config.js";
-
-
+import modalAlert from "../UIBehavior/modalAlert.js";
 let logOutEvents = () => {
   delete config.user;
   $("#theGame").html('');
@@ -25,7 +24,7 @@ let logOut = () => {
         logOutEvents();
       })
       .catch((data) => {
-        alert("error loging out user");
+        modalAlert("error loging out user","Alert!!");
       });
   });
 };

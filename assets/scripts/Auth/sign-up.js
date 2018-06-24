@@ -1,6 +1,7 @@
 import apiUrl from "../config.js";
 import chngPassEvents from "./log-in.js";
 import config from "../store.js";
+import modalAlert from "../UIBehavior/modalAlert.js";
 
 
 let signUp = () => {
@@ -20,12 +21,12 @@ let signUp = () => {
         }
       })
       .then(() => {
-        alert("You can now log in with your credentials");
+        modalAlert("You can now log in with your credentials","Success!!");
         $('#sign-up').trigger('reset');
         $("#profile-tab").trigger('click');
       })
       .catch(() => {
-        alert("Error trying to sign up");
+        modalAlert("An error has occur while trying to sign up, please try again.","Alert!!");
       });
   });
 };

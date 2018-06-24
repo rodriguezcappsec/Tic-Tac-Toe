@@ -1,5 +1,6 @@
 import apiUrl from "../config.js";
 import config from "../store.js";
+import modalAlert from "../UIBehavior/modalAlert.js";
 
 let changePassword = () => {
   $("#change-password").on("submit", event => {
@@ -20,12 +21,14 @@ let changePassword = () => {
       })
       .then((data) => {
         $('#change-password').trigger('reset');
+        modalAlert("Password Changed", "Alert!!")
         $('#closeModal').trigger('click');
-        $("#log-out").trigger();
-        alert("password changed!");
+        $("#log-out").trigger('click');
       })
       .catch(() => {
-        alert("Error changing password");
+        modalAlert("Error changing password", "Alert!!");
+        $('#closeModal').trigger('click');
+        $('#change-password').trigger('reset');
       });
   });
 }

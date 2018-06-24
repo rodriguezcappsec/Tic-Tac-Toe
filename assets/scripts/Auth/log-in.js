@@ -16,7 +16,7 @@ let loginUpEvents = (data) => {
                     <button class="btn btn-primary" id="showBoard">Create Board</button>
                 </span>
             </div>
-        <table id="tictactoe" class="ttt">
+        <table id="tictactoe" class="tictactoe">
         </table>
     </div>
         `);
@@ -57,7 +57,8 @@ let logIn = () => {
         loginUpEvents(data);
       })
       .catch(() => {
-        console.log("Error");
+        modalAlert(`One of your credentials is incorrect!`, "Alert!!")
+         $("form").trigger('reset');
       });
   });
 };
