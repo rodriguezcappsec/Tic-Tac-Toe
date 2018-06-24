@@ -28,6 +28,11 @@ td {
   /* background: rgb(247, 247, 255); */
   font-weight: bold;
 }
+#AlertsModal {
+  transform: translate(0, -50%);
+  top: 50%;
+  margin: 0 auto;
+}
 #aydio{
   text-align: center;
 }

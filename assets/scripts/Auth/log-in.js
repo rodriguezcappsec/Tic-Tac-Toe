@@ -3,11 +3,12 @@ import apiUrl from "../config.js";
 import config from "../store.js";
 import ticTacToe from "../Board/board.js";
 import logOut from "../Auth/log-out.js";
+import modalAlert from "../UIBehavior/modalAlert.js";
 
 let loginUpEvents = (data) => {
   config.user = data.user;
   $("#changePasswords").show();
-  $("#theGame").html(`
+  $("#theGame").html( /*html*/ `
           <div class="justify-content-center shadow align-items-center container top-100" style="width:500px" id="aydio">
                 <div class="input-group">  
                 <input type="text" id="dimension" placeholder="Insert Tic Tac Toe dimension" class="form-control">              
@@ -21,11 +22,11 @@ let loginUpEvents = (data) => {
         `);
 
   ticTacToe();
-  $("#user-menu").append(`<li>
+  $("#user-menu").append( /*html*/ `<li>
                 <a id="log-out">Log Out</a>
               </li>`);
 
-  $("#user-menu").append(`<li>
+  $("#user-menu").append( /*html*/ `<li>
                 <a id="password-changed" data-toggle="modal" data-target="#exampleModal">Change Password</a>
               </li>`);
   logOut();
@@ -35,6 +36,7 @@ let loginUpEvents = (data) => {
   $("#menu").show();
 
 }
+
 
 let logIn = () => {
   $("#log-In").on("submit", event => {
@@ -51,6 +53,7 @@ let logIn = () => {
         }
       })
       .then(data => {
+        modalAlert(`${data.user.email}`, "Welcome")
         loginUpEvents(data);
       })
       .catch(() => {
