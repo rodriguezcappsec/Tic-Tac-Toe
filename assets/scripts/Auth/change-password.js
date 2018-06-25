@@ -20,11 +20,10 @@ let changePassword = () => {
         },
       })
       .then(() => {
-        $("#log-out").trigger('click');
+        $('#exampleModal').modal('hide')
         $('#change-password').trigger('reset');
         modalAlert("Password Changed, Please logIn again", "Success")
-        $('#closeModal').trigger('click');
-
+        // $("#log-out").trigger('click');
       })
       .catch(() => {
         modalAlert("Error changing password", "Alert!!");

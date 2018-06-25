@@ -12,12 +12,12 @@ import signUpApi from "./Auth/sign-up.js";
 import changePasswordApi from "./Auth/change-password.js";
 import config from "./store.js";
 import getGame from "./Board/getGame.js";
+import gameOptions from "./Board/gameOptions.js";
 $(() => {
   logInApi.logIn();
   $("#menu").hide();
   // $("#changePasswords").hide();
   // ;
-  getGame();
-
+  // getGame();
   signUpApi();
 });

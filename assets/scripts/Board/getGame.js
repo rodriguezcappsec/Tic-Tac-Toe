@@ -1,7 +1,7 @@
 import config from "../store.js";
 import apiUrl from "../config.js";
 let getGame = () => {
-  $('#getGame').on('click', () => {
+  $('#saveGame').on('click', () => {
     $.ajax({
         url: apiUrl.apiUrl + `/games/5876`,
         method: "GET",

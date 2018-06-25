@@ -3,32 +3,17 @@
 import boardToArray from "./boardToArray.js";
 import createBoard from "./createBoard.js";
 import createGame from "./createGame";
+import getGame from "./getGame.js";
 import modalAlert from "../UIBehavior/modalAlert.js";
+import saveGame from "./saveGame.js";
+
 var boardStorage = []; //Array where board will be store to determine the winner
 let boolSwitcher = false; //Variable to switch everytime the user clicks (O= True, X=False)
 let gameOver = false;
 let clickCounter = 0; //Counter to determine if it is a raw game
 let playerX = "X"
 let playerO = "O";
-
-let gameOptions = () => {
-  $('#RenderGame').append(`
-  <div class="col-md-2 left-50-percent" id="gameOptions">
-      <div class="shadow">
-          <h5 class="font-16">Game options</h5>
-          <ul style="list-style:none">
-            <li>
-              <a id="saveGame" href="#">Save Game</a>
-            </li>
-            </ul>
-      </div>
-    </div>
-  `)
-  $("#saveGame").on('click', () => {
-    createGame();
-  })
-}
-
+//  top-10
 let ticTacToe = () => {
   let listenerToEachTd = () => {
     $("#tictactoe td").on("click", event => {
@@ -41,6 +26,7 @@ let ticTacToe = () => {
           clickCounter++;
         boardToArray(boardStorage); //Every time the user clicks, the board parses into a multidimensional array
         winner(boardStorage);
+        saveGame(boardStorage);
       }
       boardStorage = []; //Clearing the board after user clicks, and the winner is determined
     });
@@ -53,16 +39,14 @@ let ticTacToe = () => {
       let dimension = document.getElementById("dimension").value;
       createBoard(Number(dimension), listenerToEachTd);
       // createGame();
-      $('#gameOptions').remove();
-      gameOptions();
+      // $('#gameOptions').remove();
+      // gameOptions();
+
       gameOver = false;
     });
   };
   showBoard();
 };
-
-
-
 
 let winner = arr => {
   var hztlWinner = true;

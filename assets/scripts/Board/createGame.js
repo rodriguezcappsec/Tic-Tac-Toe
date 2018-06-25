@@ -1,7 +1,7 @@
 import config from "../store.js";
 import apiUrl from "../config.js";
 import modalAlert from "../UIBehavior/modalAlert.js";
-
+import gameStorage from "../storeGame.js";
 let createGame = () => {
   $.ajax({
       url: apiUrl.apiUrl + "/games",
@@ -22,7 +22,9 @@ let createGame = () => {
       }
     })
     .then(data => {
-      modalAlert(`Game Saved successfuly ${JSON.stringify(data)}`, "Success");
+      gameStorage.game = data.game.id;
+      console.log(`${JSON.stringify(data)}`);
+      modalAlert(`Game Saved successfuly`, "Success");
     })
     .catch(() => {
       console.log("Game couldn't be saved!");

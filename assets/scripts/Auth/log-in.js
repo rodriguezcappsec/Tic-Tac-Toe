@@ -7,13 +7,15 @@ import modalAlert from "../UIBehavior/modalAlert.js";
 import changePassModal from "../UIBehavior/changePasswordModal";
 import changePasswordApi from "./change-password.js"
 import getGame from "../Board/getGame.js";
-
+import gameOptions from "../Board/gameOptions.js";
+// col-md-7 top-100
+// justify-content-center shadow align-items-center container top-100
 let loginUpEvents = (data) => {
   config.user = data.user;
   $("#userAuthentication").hide();
   $("#RenderGame").html( /*html*/ `
   <div id="theGame" class="theGame">
-<div class="justify-content-center shadow align-items-center container top-100" style="width:500px" id="aydio">
+<div class="col-md-3 top-100" style="width:500px" id="aydio">
                 <div class="input-group">
                 <input type="text" id="dimension" placeholder="Insert Tic Tac Toe dimension" class="form-control">
                 <span class="input-group-btn">
@@ -25,8 +27,8 @@ let loginUpEvents = (data) => {
     </div>
     </div>
         `);
-
   ticTacToe();
+  $('#RenderGame').append(gameOptions())
   $("#user-menu").append( /*html*/ `<li>
                 <a id="log-out">Log Out</a>
               </li>`);
@@ -40,6 +42,7 @@ let loginUpEvents = (data) => {
   $("#userLoged").text(config.user.email);
   $("#menu").show();
 }
+
 let logIn = () => {
   $("#log-In").on("submit", event => {
     let serialization = $("#log-In").serializeArray();
@@ -58,7 +61,6 @@ let logIn = () => {
         modalAlert(`${data.user.email}`, "Welcome")
         loginUpEvents(data);
         console.log(config);
-
       })
       .catch(() => {
         modalAlert(`One of your credentials is incorrect!`, "Alert!!")
