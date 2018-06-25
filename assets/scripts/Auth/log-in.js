@@ -11,8 +11,9 @@ import changePasswordApi from "./change-password.js"
 let loginUpEvents = (data) => {
   config.user = data.user;
   // $("#changePasswords").show();
-  $("#theGame").html( /*html*/ `
-          <div class="justify-content-center shadow align-items-center container top-100" style="width:500px" id="aydio">
+  $("#RenderGame").html( /*html*/ `
+  <div id="theGame" class="theGame">
+<div class="justify-content-center shadow align-items-center container top-100" style="width:500px" id="aydio">
                 <div class="input-group">  
                 <input type="text" id="dimension" placeholder="Insert Tic Tac Toe dimension" class="form-control">              
                 <span class="input-group-btn">
@@ -22,6 +23,8 @@ let loginUpEvents = (data) => {
         <table id="tictactoe" class="tictactoe">
         </table>
     </div>
+    </div>
+          
         `);
   changePassModal();
   changePasswordApi();
