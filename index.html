@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Example</title>
+  <title>Tic Tac Toe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Do not add `link` tags-->
@@ -60,10 +60,9 @@
         </ul>
         <div class="tab-content" id="myTabContent">
           <div class="tab-pane fade active in" role="tabpanel" id="home" aria-labelledby="home-tab">
-            <br>
+            <br/>
             <form id="sign-up" class="form-signup">
               <h4 class="form-signin-heading">Please sign up</h4>
-              <hr />
               <label class="label-form">Email address</label>
               <input type="email" name="credentials[email]" class="form-control" placeholder="Email address" autofocus="">
               <label class="label-form" class="sr-only">Password</label>
@@ -79,7 +78,6 @@
             <form class="form-login" id="log-In">
               <br />
               <h4 class="form-signin-heading">Please log in</h4>
-              <hr />
               <label class="label-form" class="sr-only">Email address</label>
               <input type="email" name="logIn[Email]" class="form-control" placeholder="Email address" required="" autofocus="">
               <label class="label-form" class="sr-only">Password</label>
@@ -94,41 +92,5 @@
       </div>
     </div>
   </div>
-
-  <div id="changePasswords">
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 class="modal-title" id="exampleModalLabel">Change Password</h2>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form id="change-password">
-              <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Old Password:</label>
-                <input type="password" name="passwords[old]" class="form-control" id="oldPass" placeholder="Old Password">
-              </div>
-              <div class="form-group">
-                <label for="message-text" class="col-form-label">New Password:</label>
-                <input type="password" name="passwords[new]" class="form-control" id="newPass" placeholder="New Password">
-              </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" id="closeModal" data-dismiss="modal">Close</button>
-            <button id="changePassword" type="submit" class="btn btn-primary">Change Password</button>
-          </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
 </body>
-
 </html>

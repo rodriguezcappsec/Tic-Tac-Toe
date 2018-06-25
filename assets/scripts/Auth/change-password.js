@@ -19,7 +19,7 @@ let changePassword = () => {
           }
         },
       })
-      .then((data) => {
+      .then(() => {
         $('#change-password').trigger('reset');
         modalAlert("Password Changed", "Alert!!")
         $('#closeModal').trigger('click');

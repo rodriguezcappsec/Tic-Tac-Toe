@@ -4,10 +4,13 @@ import config from "../store.js";
 import ticTacToe from "../Board/board.js";
 import logOut from "../Auth/log-out.js";
 import modalAlert from "../UIBehavior/modalAlert.js";
+import changePassModal from "../UIBehavior/changePasswordModal";
+import changePasswordApi from "./change-password.js"
+
 
 let loginUpEvents = (data) => {
   config.user = data.user;
-  $("#changePasswords").show();
+  // $("#changePasswords").show();
   $("#theGame").html( /*html*/ `
           <div class="justify-content-center shadow align-items-center container top-100" style="width:500px" id="aydio">
                 <div class="input-group">  
@@ -20,12 +23,12 @@ let loginUpEvents = (data) => {
         </table>
     </div>
         `);
-
+  changePassModal();
+  changePasswordApi();
   ticTacToe();
   $("#user-menu").append( /*html*/ `<li>
                 <a id="log-out">Log Out</a>
               </li>`);
-
   $("#user-menu").append( /*html*/ `<li>
                 <a id="password-changed" data-toggle="modal" data-target="#exampleModal">Change Password</a>
               </li>`);
@@ -36,8 +39,6 @@ let loginUpEvents = (data) => {
   $("#menu").show();
 
 }
-
-
 let logIn = () => {
   $("#log-In").on("submit", event => {
     let serialization = $("#log-In").serializeArray();
@@ -58,9 +59,12 @@ let logIn = () => {
       })
       .catch(() => {
         modalAlert(`One of your credentials is incorrect!`, "Alert!!")
-         $("form").trigger('reset');
+        $("form").trigger('reset');
       });
   });
 };
 
-export default { logIn,loginUpEvents };
+export default {
+  logIn,
+  loginUpEvents
+};

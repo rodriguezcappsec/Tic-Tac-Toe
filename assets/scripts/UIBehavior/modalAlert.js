@@ -22,7 +22,6 @@ let modalAlert = (message, title) => {
     </div>
   </div>
     `)
- 
   $("#AlertsModal").modal('show');
 }
 
