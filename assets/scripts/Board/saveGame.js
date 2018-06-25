@@ -3,43 +3,42 @@ import config from "../store.js";
 import modalAlert from "../UIBehavior/modalAlert.js";
 import apiUrl from "../config.js";
 
-
-
-let updateGame = (board) => {
-  let ay = {
-    "game": {
-      "cell": '',
-      "over": false
-    }
-  }
-  console.log(board);
+let indexValue = (board, position, winner) => {
   let normalBoard = [];
-  let cells = '';
+  let updateGame;
   for (let column = 0; column < board.length; column++) {
     for (let row = 0; row < board.length; row++) {
       normalBoard.push(board[column][row]);
     }
   }
-  for (let index = 0; index < normalBoard.length; index++) {
-    cells += `{index:${index},value:${normalBoard[index]==''? " ":normalBoard[index]}},`
-  }
-  ay.game.cell = {
-    cells
-  };
-  console.log(JSON.stringify(ay.game.cell));
-  //   console.log(gameStorage);
+  return (updateGame = {
+    index: position,
+    value: normalBoard[position],
+    winner: winner
+  });
+}
 
+let updateGame = (board, position) => {
+  console.log(indexValue(board, position))
   $.ajax({
       url: apiUrl.apiUrl + `/games/${gameStorage.game}`,
       method: "PATCH",
       headers: {
         Authorization: "Token token=" + config.user.token
       },
-      data: ay
+      data: {
+        "game": {
+          "cell": {
+            index: indexValue(board, position).index,
+            value: indexValue(board, position).value
+          },
+          "over": indexValue(board, position).winner
+        }
+      }
     })
     .then(data => {
       console.log(`${JSON.stringify(data)}`);
-      modalAlert(`Game Saved successfuly`, "Success");
+      // modalAlert(`Game Saved successfuly`, "Success");
     })
     .catch(() => {
       console.log("Game couldn't be saved!");

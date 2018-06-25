@@ -1,6 +1,7 @@
 import modalAlert from "../UIBehavior/modalAlert.js";
 //Creating the table
 let createBoard = (dimension, tdEvents) => {
+  let count = -1;
   if (dimension > 7) {
     modalAlert(`Board limit size is 7`,"Warning!!");
   } else if (dimension < 3 || dimension < 1) {
@@ -17,14 +18,16 @@ let createBoard = (dimension, tdEvents) => {
       tr = document.createElement("tr");
       tr.id = trIndex;
       for (let tdIndex = 1; tdIndex <= dimension; ++tdIndex) {
+        count++;
         td = document.createElement("td");
-        td.id = `${trIndex}-${tdIndex}`;
+        td.id = `${count}`;
         td.className = `${trIndex}-td-${tdIndex}`;
         tr.appendChild(td);
       }
 
       table.appendChild(tr);
     }
+    count = -1;
     //Add click event to each TD, right after the table is created.
     tdEvents();
   }

@@ -12,7 +12,7 @@ import gameOptions from "../Board/gameOptions.js";
 // justify-content-center shadow align-items-center container top-100
 let loginUpEvents = (data) => {
   config.user = data.user;
-  $("#userAuthentication").hide();
+  $("#userAuthentication").hide(); 
   $("#RenderGame").html( /*html*/ `
   <div id="theGame" class="theGame">
 <div class="col-md-3 top-100" style="width:500px" id="aydio">
