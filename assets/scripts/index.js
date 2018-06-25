@@ -11,11 +11,13 @@ import logOut from "./Auth/log-out.js";
 import signUpApi from "./Auth/sign-up.js";
 import changePasswordApi from "./Auth/change-password.js";
 import config from "./store.js";
+import getGame from "./Board/getGame.js";
 $(() => {
   logInApi.logIn();
   $("#menu").hide();
   // $("#changePasswords").hide();
-  //changePasswordApi();
-  signUpApi();
+  // ;
+  getGame();
 
+  signUpApi();
 });

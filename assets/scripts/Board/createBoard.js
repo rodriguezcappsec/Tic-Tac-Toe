@@ -22,6 +22,7 @@ let createBoard = (dimension, tdEvents) => {
         td.className = `${trIndex}-td-${tdIndex}`;
         tr.appendChild(td);
       }
+
       table.appendChild(tr);
     }
     //Add click event to each TD, right after the table is created.

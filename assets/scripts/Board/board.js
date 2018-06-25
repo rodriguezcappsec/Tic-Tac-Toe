@@ -2,16 +2,32 @@
 
 import boardToArray from "./boardToArray.js";
 import createBoard from "./createBoard.js";
-import config from "../store.js";
-import gameState from "./gameState.js";
+import createGame from "./createGame";
 import modalAlert from "../UIBehavior/modalAlert.js";
-
 var boardStorage = []; //Array where board will be store to determine the winner
 let boolSwitcher = false; //Variable to switch everytime the user clicks (O= True, X=False)
 let gameOver = false;
 let clickCounter = 0; //Counter to determine if it is a raw game
-let playerX = "X";
+let playerX = "X"
 let playerO = "O";
+
+let gameOptions = () => {
+  $('#RenderGame').append(`
+  <div class="col-md-2 left-50-percent" id="gameOptions">
+      <div class="shadow">
+          <h5 class="font-16">Game options</h5>
+          <ul style="list-style:none">
+            <li>
+              <a id="saveGame" href="#">Save Game</a>
+            </li>
+            </ul>
+      </div>
+    </div>
+  `)
+  $("#saveGame").on('click', () => {
+    createGame();
+  })
+}
 
 let ticTacToe = () => {
   let listenerToEachTd = () => {
@@ -20,12 +36,11 @@ let ticTacToe = () => {
         //Boolean Switcher, TD text (O= True, X=False)
         boolSwitcher = !boolSwitcher;
         boolSwitcher === true ?
-          (console.log(`Player X turn`), (event.target.innerText = playerX)) :
-          (console.log(`Player O turn`), (event.target.innerText = playerO)),
+          event.target.innerText = playerX :
+          event.target.innerText = playerO,
           clickCounter++;
         boardToArray(boardStorage); //Every time the user clicks, the board parses into a multidimensional array
         winner(boardStorage);
-        gameState(boardStorage, gameOver);
       }
       boardStorage = []; //Clearing the board after user clicks, and the winner is determined
     });
@@ -37,6 +52,10 @@ let ticTacToe = () => {
       boolSwitcher = false;
       let dimension = document.getElementById("dimension").value;
       createBoard(Number(dimension), listenerToEachTd);
+      // createGame();
+      $('#gameOptions').remove();
+      gameOptions();
+      gameOver = false;
     });
   };
   showBoard();
@@ -66,7 +85,7 @@ let winner = arr => {
           .forEach(e => (e.innerHTML = ""));
         gameOver = false;
       }, 1000);
-      modalAlert(`The winner is : Player ${arr[index][0]} --> Row ${index + 1}`, "Congratulations!!","true");
+      modalAlert(`The winner is : Player ${arr[index][0]} --> Row ${index + 1}`, "Congratulations!!", "true");
     }
     ("");
   }
@@ -85,7 +104,6 @@ let winner = arr => {
             modalAlert(`The winner is : Player ${vtclChecker[0]} --> Column ${y + 1}`, "Congratulations!!", true);
             boolSwitcher = false;
             gameOver = true;
-            // console.log(gameOver);
             setTimeout(() => {
               document
                 .querySelectorAll("#tictactoe td")
@@ -158,7 +176,7 @@ let winner = arr => {
     dgnlWinner == false
   ) {
     gameOver = false;
-    alert("raw");
+    modalAlert("Raw Game", "No winner!");
     clickCounter = 0;
     setTimeout(() => {
       document

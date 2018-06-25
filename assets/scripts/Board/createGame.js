@@ -1,9 +1,8 @@
 import config from "../store.js";
 import apiUrl from "../config.js";
+import modalAlert from "../UIBehavior/modalAlert.js";
 
-let createGame = (board, gameOver) => {
-  console.log(board);
-  console.log(gameOver);
+let createGame = () => {
   $.ajax({
       url: apiUrl.apiUrl + "/games",
       method: "POST",
@@ -12,8 +11,8 @@ let createGame = (board, gameOver) => {
       },
       data: {
         game: {
-          cells: board,
-          over: gameOver,
+          cells: [],
+          over: false,
           player_x: {
             id: config.user.id,
             email: config.user.email
@@ -23,11 +22,11 @@ let createGame = (board, gameOver) => {
       }
     })
     .then(data => {
-      console.log(`Game Saved! ${JSON.stringify(data.game.cells)}`);
+      modalAlert(`Game Saved successfuly ${JSON.stringify(data)}`, "Success");
     })
     .catch(() => {
       console.log("Game couldn't be saved!");
     });
 };
- 
+
 export default createGame;
