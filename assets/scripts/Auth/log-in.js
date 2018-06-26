@@ -12,22 +12,22 @@ import gameOptions from "../Board/gameOptions.js";
 // justify-content-center shadow align-items-center container top-100
 let loginUpEvents = (data) => {
   config.user = data.user;
-  $("#userAuthentication").hide(); 
-  $("#RenderGame").html( /*html*/ `
-  <div id="theGame" class="theGame">
-<div class="col-md-3 top-100" style="width:500px" id="aydio">
-                <div class="input-group">
-                <input type="text" id="dimension" placeholder="Insert Tic Tac Toe dimension" class="form-control">
-                <span class="input-group-btn">
-                    <button class="btn btn-primary" id="showBoard">Create Board</button>
-                </span>
-            </div>
-        <table id="tictactoe" class="tictactoe">
-        </table>
-    </div>
-    </div>
-        `);
-  ticTacToe();
+  $("#userAuthentication").hide();
+//   $("#RenderGame").html( /*html*/ `
+//   <div id="theGame" class="theGame">
+// <div class="col-md-3 top-100" style="width:500px" id="aydio">
+//                 <div class="input-group">
+//                 <input type="text" id="dimension" placeholder="Insert Tic Tac Toe dimension" class="form-control">
+//                 <span class="input-group-btn">
+//                     <button class="btn btn-primary" id="showBoard">Create Board</button>
+//                 </span>
+//             </div>
+//         <table id="tictactoe" class="tictactoe">
+//         </table>
+//     </div>
+//     </div>
+//         `);
+  // ticTacToe();
   $('#RenderGame').append(gameOptions())
   $("#user-menu").append( /*html*/ `<li>
                 <a id="log-out">Log Out</a>

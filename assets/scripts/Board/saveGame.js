@@ -38,7 +38,6 @@ let updateGame = (board, position) => {
     })
     .then(data => {
       console.log(`${JSON.stringify(data)}`);
-      // modalAlert(`Game Saved successfuly`, "Success");
     })
     .catch(() => {
       console.log("Game couldn't be saved!");

@@ -2,8 +2,6 @@
 
 import boardToArray from "./boardToArray.js";
 import createBoard from "./createBoard.js";
-import createGame from "./createGame";
-import getGame from "./getGame.js";
 import modalAlert from "../UIBehavior/modalAlert.js";
 import saveGame from "./saveGame.js";
 
@@ -13,7 +11,8 @@ let gameOver = false;
 let clickCounter = 0; //Counter to determine if it is a raw game
 let playerX = "X"
 let playerO = "O";
-//  top-10
+
+
 let ticTacToe = () => {
   let listenerToEachTd = () => {
     $("#tictactoe td").on("click", event => {
@@ -31,6 +30,7 @@ let ticTacToe = () => {
       boardStorage = []; //Clearing the board after user clicks, and the winner is determined
       gameOver = false;
     });
+
   };
   //Showing the board based on the user input
   let showBoard = () => {
@@ -67,7 +67,6 @@ let winner = arr => {
       }, 1000);
       modalAlert(`The winner is : Player ${arr[index][0]} --> Row ${index + 1}`, "Congratulations!!", "true");
     }
-    ("");
   }
   //Vertical Checking
   if (hztlWinner === false) {
