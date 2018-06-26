@@ -1,5 +1,7 @@
 'use strict'
 
-const gameStorage = {}
+const gameStorage = {
+
+}
 
 export default gameStorage

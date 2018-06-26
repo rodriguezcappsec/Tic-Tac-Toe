@@ -2,6 +2,7 @@ import gameStorage from '../storeGame.js';
 import config from "../store.js";
 import modalAlert from "../UIBehavior/modalAlert.js";
 import apiUrl from "../config.js";
+import selectedId from "../saveToSelectedId.js";
 
 let indexValue = (board, position, winner) => {
   let normalBoard = [];
@@ -18,10 +19,10 @@ let indexValue = (board, position, winner) => {
   });
 }
 
-let updateGame = (board, position) => {
+let updateGame = (board, position, win) => {
   console.log(indexValue(board, position))
   $.ajax({
-      url: apiUrl.apiUrl + `/games/${gameStorage.game}`,
+      url: apiUrl.apiUrl + `/games/${selectedId.gameId}`,
       method: "PATCH",
       headers: {
         Authorization: "Token token=" + config.user.token
@@ -29,10 +30,10 @@ let updateGame = (board, position) => {
       data: {
         "game": {
           "cell": {
-            index: indexValue(board, position).index,
-            value: indexValue(board, position).value
+            index: indexValue(board, position, win).index,
+            value: indexValue(board, position, win).value
           },
-          "over": indexValue(board, position).winner
+          "over": indexValue(board, position, win).winner
         }
       }
     })

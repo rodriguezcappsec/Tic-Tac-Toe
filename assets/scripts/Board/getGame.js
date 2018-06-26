@@ -1,5 +1,6 @@
 import config from "../store.js";
 import apiUrl from "../config.js";
+import gameStored from "../storeGame.js";
 let getGame = () => {
   $('#saveGame').on('click', () => {
     $.ajax({
@@ -10,7 +11,7 @@ let getGame = () => {
         }
       })
       .then(data => {
-        //   console.log(`Game Saved! ${JSON.stringify(data.game)}`);
+
         console.log(data);
       }).catch(() => {
         console.log("Game couldn't be saved!");

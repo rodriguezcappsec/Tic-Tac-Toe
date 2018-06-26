@@ -12,7 +12,6 @@ let clickCounter = 0; //Counter to determine if it is a raw game
 let playerX = "X"
 let playerO = "O";
 
-
 let ticTacToe = () => {
   let listenerToEachTd = () => {
     $("#tictactoe td").on("click", event => {
@@ -30,27 +29,26 @@ let ticTacToe = () => {
       boardStorage = []; //Clearing the board after user clicks, and the winner is determined
       gameOver = false;
     });
-
   };
   //Showing the board based on the user input
   let showBoard = () => {
-    $("#showBoard").on("click", () => {
+    $(".clickToStart").on("click", () => {
       clickCounter = 0;
       boolSwitcher = false;
-      let dimension = document.getElementById("dimension").value;
-      createBoard(Number(dimension), listenerToEachTd);
+      createBoard(listenerToEachTd);
       gameOver = false;
     });
   };
   showBoard();
 };
 
+
 let winner = arr => {
   var hztlWinner = true;
   let dgnlWinner = true;
   let secondDgnlWinner = true;
   let vtclWinner = true;
-  let dimension = Number(document.getElementById("dimension").value);
+  let dimension = 3;
   //Horizontal Checking
   for (var index = 0; index < arr.length; index++) {
     hztlWinner = arr[index].every(

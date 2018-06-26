@@ -8,11 +8,12 @@ let boardToArray = boardStorage => {
     tds[td].innerHTML == "" ? (tempTds += " ") : (tempTds += tds[td].innerHTML);
     ++count; //Counting to check everytime the loop increments to the given dimension
 
-    count.toString() === $("#dimension").val() //Ternary condition, if the counter is equal the dimension
-      ? (boardStorage.push(tempTds.split("")), (tempTds = ""), (count = 0))
-      : count;
+    count === 3 //Ternary condition, if the counter is equal the dimension
+      ?
+      (boardStorage.push(tempTds.split("")), (tempTds = ""), (count = 0)) :
+      count;
   }
-  // console.log(boardStorage);
+  console.log(boardStorage);
 };
 
 export default boardToArray;
