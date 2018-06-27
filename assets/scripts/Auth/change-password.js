@@ -22,8 +22,9 @@ let changePassword = () => {
       .then(() => {
         $('#exampleModal').modal('hide')
         $('#change-password').trigger('reset');
+        location.reload();
         modalAlert("Password Changed, Please logIn again", "Success")
-        // $("#log-out").trigger('click');
+
       })
       .catch(() => {
         modalAlert("Error changing password", "Alert!!");
