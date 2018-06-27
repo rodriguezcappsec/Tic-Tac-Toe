@@ -14,19 +14,21 @@ let playerO = "O";
 let ticTacToe = () => {
   let listenerToEachTd = () => {
     $("#tictactoe td").on("click", event => {
-      if (event.target.innerText === "") {
-        //Boolean Switcher, TD text (O= True, X=False)
-        boolSwitcher = !boolSwitcher;
-        boolSwitcher === true ?
-          ($('#turn').text("Player X turn"), event.target.innerText = playerX) :
-          ($('#turn').text("Player O turn"), event.target.innerText = playerO),
-          clickCounter++;
-        boardToArray(boardStorage); //Every time the user clicks, the board parses into a multidimensional array
-        winner(boardStorage);
-        saveGame(boardStorage, event.target.id, gameOver);
+      if (gameOver != true) {
+        if (event.target.innerText === "") {
+          //Boolean Switcher, TD text (O= True, X=False)
+          boolSwitcher = !boolSwitcher;
+          boolSwitcher === true ?
+            ($('#turn').text("Player X turn"), event.target.innerText = playerX) :
+            ($('#turn').text("Player O turn"), event.target.innerText = playerO),
+            clickCounter++;
+          boardToArray(boardStorage); //Every time the user clicks, the board parses into a multidimensional array
+          winner(boardStorage);
+          saveGame(boardStorage, event.target.id, gameOver);
+        }
       }
       boardStorage = []; //Clearing the board after user clicks, and the winner is determined
-      gameOver = false;
+    //  gameOver = false;
     });
   };
   //Showing the board based on the user input
@@ -56,11 +58,11 @@ let winner = arr => {
       clickCounter = 0;
       boolSwitcher = false;
       gameOver = true;
-      setTimeout(() => {
-        document
-          .querySelectorAll("#tictactoe td")
-          .forEach(e => (e.innerHTML = ""));
-      }, 1000);
+      // setTimeout(() => {
+      //   document
+      //     .querySelectorAll("#tictactoe td")
+      //     .forEach(e => (e.innerHTML = ""));
+      // }, 1000);
       modalAlert(`The winner is : Player ${arr[index][0]} --> Row ${index + 1}`, "Congratulations!!", "true");
     }
   }
@@ -79,11 +81,11 @@ let winner = arr => {
             modalAlert(`The winner is : Player ${vtclChecker[0]} --> Column ${y + 1}`, "Congratulations!!", true);
             boolSwitcher = false;
             gameOver = true;
-            setTimeout(() => {
-              document
-                .querySelectorAll("#tictactoe td")
-                .forEach(e => (e.innerHTML = ""));
-            }, 1000);
+            // setTimeout(() => {
+            //   document
+            //     .querySelectorAll("#tictactoe td")
+            //     .forEach(e => (e.innerHTML = ""));
+            // }, 1000);
           }
         }
       }
@@ -102,11 +104,11 @@ let winner = arr => {
           modalAlert(`The winner is : Player ${dgnlChecker[0]} --> Diagonal ${1}`, "Congratulations!!", true);
           boolSwitcher = false;
           gameOver = true;
-          setTimeout(() => {
-            document
-              .querySelectorAll("#tictactoe td")
-              .forEach(e => (e.innerHTML = ""));
-          }, 1000);
+          // setTimeout(() => {
+          //   document
+          //     .querySelectorAll("#tictactoe td")
+          //     .forEach(e => (e.innerHTML = ""));
+          // }, 1000);
         }
       }
     }
@@ -131,11 +133,11 @@ let winner = arr => {
           );
           boolSwitcher = false;
           gameOver = true;
-          setTimeout(() => {
-            document
-              .querySelectorAll("#tictactoe td")
-              .forEach(e => (e.innerHTML = ""));
-          }, 1000);
+          // setTimeout(() => {
+          //   document
+          //     .querySelectorAll("#tictactoe td")
+          //     .forEach(e => (e.innerHTML = ""));
+          // }, 1000);
         }
       }
     }
