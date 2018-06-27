@@ -22,6 +22,8 @@ let gameOptions = () => {
     $("#RenderGame").append( /*html*/ `
     <div id="theGame" class="theGame">
     <div class="col-md-3 shadow top-100" style="width:500px" id="aydio">
+        <h4 id="turn"></h4>
+         <br />
         <table id="tictactoe" class="tictactoe">
         </table>
     </div>

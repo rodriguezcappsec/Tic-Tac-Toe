@@ -8,7 +8,6 @@ let signUp = () => {
   $("#sign-up").on("submit", event => {
     let serialization = $("#sign-up").serializeArray();
     event.preventDefault();
-    console.log(serialization);
     $.ajax({
         url: apiUrl.apiUrl + "/sign-up",
         method: "POST",

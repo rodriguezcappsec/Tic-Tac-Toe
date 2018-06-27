@@ -18,8 +18,8 @@ let ticTacToe = () => {
         //Boolean Switcher, TD text (O= True, X=False)
         boolSwitcher = !boolSwitcher;
         boolSwitcher === true ?
-          event.target.innerText = playerX :
-          event.target.innerText = playerO,
+          ($('#turn').text("Player X turn"), event.target.innerText = playerX) :
+          ($('#turn').text("Player O turn"), event.target.innerText = playerO),
           clickCounter++;
         boardToArray(boardStorage); //Every time the user clicks, the board parses into a multidimensional array
         winner(boardStorage);
