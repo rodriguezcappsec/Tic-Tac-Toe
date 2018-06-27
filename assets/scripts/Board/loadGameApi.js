@@ -1,10 +1,9 @@
 import apiUrl from "../config.js";
-import gameStorage from '../storeGame.js';
-import modalAlert from "../UIBehavior/modalAlert.js";
 import config from "../store.js";
 import loadedGame from "../storeLoadedGame.js";
 import selectedId from "../saveToSelectedId.js"
 import loadToBoard from "./loadToBoard.js";
+import modalAlert from "../UIBehavior/modalAlert.js";
 
 let gameArray = undefined;
 let loadGame = () => {
@@ -20,10 +19,10 @@ let loadGame = () => {
         loadedGame.cells = data.game.cells;
         selectedId.gameId = data.game.id;
         loadToBoard();
-        console.log(data.game.id);
+        // console.log(data.game.id);
       })
       .catch(() => {
-        console.log("Game couldn't be loaded!");
+        modalAlert("Game couldn't be loaded!");
       });
   })
 }

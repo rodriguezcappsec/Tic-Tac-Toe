@@ -29,7 +29,7 @@ let createGame = () => {
       modalAlert(`Game Saved successfuly, now all your moves are going to be saved!`, "Success");
     })
     .catch(() => {
-      console.log("Game couldn't be saved!");
+      modalAlert("Game couldn't be saved!");
     });
 };
 

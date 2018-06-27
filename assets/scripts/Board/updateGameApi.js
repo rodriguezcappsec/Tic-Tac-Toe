@@ -1,4 +1,3 @@
-import gameStorage from '../storeGame.js';
 import config from "../store.js";
 import modalAlert from "../UIBehavior/modalAlert.js";
 import apiUrl from "../config.js";
@@ -20,7 +19,6 @@ let indexValue = (board, position, winner) => {
 }
 
 let updateGame = (board, position, win) => {
-  console.log(indexValue(board, position))
   $.ajax({
       url: apiUrl.apiUrl + `/games/${selectedId.gameId}`,
       method: "PATCH",
@@ -37,11 +35,11 @@ let updateGame = (board, position, win) => {
         }
       }
     })
-    .then(data => {
-      console.log(`${JSON.stringify(data)}`);
+    .then(() => {
+      // console.log(`${JSON.stringify(data)}`);
     })
     .catch(() => {
-      console.log("Game couldn't be saved!");
+      modalAlert("Game couldn't be saved!");
     });
 }
 

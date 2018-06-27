@@ -22,6 +22,4 @@ let createBoard = (tdEvents) => {
   //Add click event to each TD, right after the table is created.
   tdEvents();
 }
-// };
-
 export default createBoard;
