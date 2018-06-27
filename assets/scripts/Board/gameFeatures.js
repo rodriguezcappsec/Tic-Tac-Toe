@@ -3,16 +3,22 @@ import ticTacToe from "./board";
 import savedGames from "./savedGames.js";
 
 let gameOptions = () => {
+  // <h5 class="font-16">Old Games</h5>
+
+    // <ul style="list-style:none" id="list-of-oldgames">
+    //       </ul>
   $('#RenderGame').append( /*html*/ `
   <div class="col-md-3 shadow top-100 " id="gameOptions">
-      <div class="shadow">
+      <div class="shadow" id="createLoadOld">
           <h5 class="font-16">Game options</h5>
           <ul style="list-style:none">
             <li>
               <a id="createGame" href="#">Create Game</a>
             </li>
             </ul>
+
       </div>
+
     </div>
   `)
 
@@ -31,7 +37,7 @@ let gameOptions = () => {
         `);
     $("#RenderGame").append( /*html*/ `
      <div class="col-md-3 shadow top-100 " id="Games">
-      <div class="shadow">
+      <div>
           <h5 class="font-16">Games</h5>
           <ul style="list-style:none" id="list-of-games">
             </ul>

@@ -3,6 +3,8 @@ import boardToArray from "./boardToArray.js";
 import createBoard from "./createBoard.js";
 import modalAlert from "../UIBehavior/modalAlert.js";
 import saveGame from "./updateGameApi";
+import oldGames from "../oldGamesStorage.js";
+
 
 var boardStorage = []; //Array where board will be store to determine the winner
 let boolSwitcher = false; //Variable to switch everytime the user clicks (O= True, X=False)
@@ -11,6 +13,14 @@ let clickCounter = 0; //Counter to determine if it is a raw game
 let playerX = "X"
 let playerO = "O";
 
+let renderOldGames = () => {
+  if (oldGames > -1) {
+    for (let index = 0; index < oldGames.length; index++) {
+      $('#list-of-oldgames').append("<li>" +
+        `<a class="clickToShow" id="${oldGames[index]}" href="#">Game ${index + 1}</a>` + "</li>")
+    }
+  }
+}
 let ticTacToe = () => {
   let listenerToEachTd = () => {
     $("#tictactoe td").on("click", event => {
@@ -28,7 +38,7 @@ let ticTacToe = () => {
         }
       }
       boardStorage = []; //Clearing the board after user clicks, and the winner is determined
-    //  gameOver = false;
+      //  gameOver = false;
     });
   };
   //Showing the board based on the user input
