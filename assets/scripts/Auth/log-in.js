@@ -7,7 +7,7 @@ import modalAlert from "../UIBehavior/modalAlert.js";
 import changePassModal from "../UIBehavior/changePasswordModal";
 import changePasswordApi from "./change-password.js"
 import getGame from "../Board/getGame.js";
-import gameOptions from "../Board/gameOptions.js";
+import gameFeatures from "../Board/gameFeatures";
 // col-md-7 top-100
 // justify-content-center shadow align-items-center container top-100
 let loginUpEvents = (data) => {
@@ -28,7 +28,7 @@ let loginUpEvents = (data) => {
 //     </div>
 //         `);
   // ticTacToe();
-  $('#RenderGame').append(gameOptions())
+  $('#RenderGame').append(gameFeatures())
   $("#user-menu").append( /*html*/ `<li>
                 <a id="log-out">Log Out</a>
               </li>`);

@@ -4,6 +4,7 @@ import modalAlert from "../UIBehavior/modalAlert.js";
 import config from "../store.js";
 import loadedGame from "../storeLoadedGame.js";
 import selectedId from "../saveToSelectedId.js"
+import loadToBoard from "./loadToBoard.js";
 
 let gameArray = undefined;
 let loadGame = () => {
@@ -18,6 +19,7 @@ let loadGame = () => {
       .then(data => {
         loadedGame.cells = data.game.cells;
         selectedId.gameId = data.game.id;
+        loadToBoard();
         console.log(data.game.id);
       })
       .catch(() => {

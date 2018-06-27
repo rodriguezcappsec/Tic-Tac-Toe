@@ -1,8 +1,12 @@
-import createGame from "./createGame.js";
+import createGame from "./createGameApi";
 import ticTacToe from "./board";
-import loadGame from "./loadGame.js";
+import loadGame from "./loadGameApi";
 import storedGame from "../storeLoadedGame.js";
 import listOfGames from "../listOfGames.js";
+import savedGames from "./savedGames.js";
+// <li>
+//   <a id="loadGame" href="#">Load Game</a>
+// </li>
 let gameOptions = () => {
   $('#RenderGame').append( /*html*/ `
   <div class="col-md-3 shadow top-100 " id="gameOptions">
@@ -12,18 +16,11 @@ let gameOptions = () => {
             <li>
               <a id="createGame" href="#">Create Game</a>
             </li>
-            <li>
-              <a id="loadGame" href="#">Load Game</a>
-            </li>
             </ul>
       </div>
     </div>
   `)
-//   <div class="input-group">
-//       <span class="input-group-btn">
-//           <button class="btn btn-primary" id="showBoard">Create Board</button>
-//       </span>
-//   </div>
+
   $("#createGame").on('click', () => {
     $('#Games').remove();
     $('#theGame').remove();
@@ -45,24 +42,24 @@ let gameOptions = () => {
     </div>
         `);
     createGame();
-
-    for (let index = 0; index < listOfGames.gameIds.length; index++) {
-      $('#list-of-games').append("<li>" +
-        `<a class="clickToStart"id="${listOfGames.gameIds[index]}" href="#">${listOfGames.gameIds[index]}</a>` + "</li>")
-    }
+    savedGames();
+    // for (let index = 0; index < listOfGames.gameIds.length; index++) {
+    //   $('#list-of-games').append("<li>" +
+    //     `<a class="clickToStart"id="${listOfGames.gameIds[index]}" href="#">${listOfGames.gameIds[index]}</a>` + "</li>")
+    // }
     ticTacToe();
-    loadGame.loadGame();
+    // loadGame.loadGame();
   });
 
-  $('#loadGame').on('click', () => {
-    let tds = $("#tictactoe td")
-    loadGame.loadGame();
-    console.log(storedGame.cells);
-    for (let td = 0; td < tds.length; ++td) {
-      tds[td].innerText = storedGame.cells[td] === "" ? " " : storedGame.cells[td];
-    }
-    console.log(storedGame);
-  })
+  // $('#loadGame').on('click', () => {
+  //   let tds = $("#tictactoe td")
+  //   loadGame.loadGame();
+  //   console.log(storedGame.cells);
+  //   for (let td = 0; td < tds.length; ++td) {
+  //     tds[td].innerText = storedGame.cells[td] === "" ? " " : storedGame.cells[td];
+  //   }
+  //   console.log(storedGame);
+  // })
 }
 
 export default gameOptions;

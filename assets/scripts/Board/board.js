@@ -1,9 +1,8 @@
 "use strict";
-
 import boardToArray from "./boardToArray.js";
 import createBoard from "./createBoard.js";
 import modalAlert from "../UIBehavior/modalAlert.js";
-import saveGame from "./saveGame.js";
+import saveGame from "./updateGameApi";
 
 var boardStorage = []; //Array where board will be store to determine the winner
 let boolSwitcher = false; //Variable to switch everytime the user clicks (O= True, X=False)
@@ -41,7 +40,6 @@ let ticTacToe = () => {
   };
   showBoard();
 };
-
 
 let winner = arr => {
   var hztlWinner = true;
