@@ -9,6 +9,7 @@ let logOutEvents = () => {
   $("#menu").hide();
   $("#userLoged").text('');
   $('#gameOptions').remove();
+  $('#Games').remove();
 }
 
 let logOut = () => {
