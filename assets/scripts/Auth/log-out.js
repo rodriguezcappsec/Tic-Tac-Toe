@@ -14,7 +14,6 @@ let logOutEvents = () => {
 
 let logOut = () => {
   $("#log-out").on("click", () => {
-    event.preventDefault();
     $.ajax({
         url: apiUrl.apiUrl + "/sign-out",
         method: "DELETE",

@@ -1,7 +1,7 @@
 'use stric'
 
 let listOfGames = {
-  gameIds: []
+  gameIds: [] 
 }
 
 export default listOfGames;
