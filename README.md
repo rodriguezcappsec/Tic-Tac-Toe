@@ -14,23 +14,23 @@ This is a tictactoe game project that I had to develop for my Web Development Im
 ### Technologies 
 
 ```m
-Javascript
-Jquery
-Bootstrap
+1-Javascript
+2-Jquery
+3-Bootstrap
 ```
 
 ### Bugs
 
 ```m
-*User needs to click twice to be able to create a game
-*When the game is raw and the user load the same game again, it will not say is raw again.
-*The UI for the game is not well centered and the style needs some fixes.
+1-User needs to click twice to be able to create a game
+2-When the game is raw and the user load the same game again, it will not say is raw again.
+3-The UI for the game is not well centered and the style needs some fixes.
 ```
 ### User Stories
 ```m
-*As a player I want to create an account to play.
-*As a player I want to be able to login.
-*As a player I want to logout whenever I want.
-*As a player I want to save the state of my play.
-*As a player I want to see a list of the games I created.
+1-As a player I want to create an account to play.
+2-As a player I want to be able to login.
+3-As a player I want to logout whenever I want.
+4-As a player I want to save the state of my play.
+5-As a player I want to see a list of the games I created.
 ```
