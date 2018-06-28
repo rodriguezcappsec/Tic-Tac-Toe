@@ -26,3 +26,11 @@ Bootstrap
 *When the game is raw and the user load the same game again, it will not say is raw again.
 *The UI for the game is not well centered and the style needs some fixes.
 ```
+### User Stories
+```m
+*As a player I want to create an account to play.
+*As a player I want to be able to login.
+*As a player I want to logout whenever I want.
+*As a player I want to save the state of my play.
+*As a player I want to see a list of the games I created.
+```
