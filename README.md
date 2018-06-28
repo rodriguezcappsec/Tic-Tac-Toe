@@ -11,7 +11,7 @@ This is a tictactoe game project that I had to develop for my Web Development Im
 4-Repeat process 1-3 to create new games.
 ```
 
-### Tech Used
+### Technologies 
 
 ```m
 Javascript
