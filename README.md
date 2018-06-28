@@ -1,6 +1,6 @@
 # Tic Tac Toe
 ```m
-This is a tictactoe game project that I had to develop.
+This is a tictactoe game project that I had to develop for my Web Development Immersive class.
 ```
 
 ### How it works?
