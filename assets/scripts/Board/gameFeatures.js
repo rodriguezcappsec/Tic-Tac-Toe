@@ -1,7 +1,6 @@
 import createGame from "./createGameApi";
 import ticTacToe from "./board";
 import savedGames from "./savedGames.js";
-import loadGame from "../Board/loadGameApi.js";
 let gameOptions = () => {
 
   $('#RenderGame').append( /*html*/ `

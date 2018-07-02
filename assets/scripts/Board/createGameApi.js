@@ -3,8 +3,6 @@ import apiUrl from "../config.js";
 import modalAlert from "../UIBehavior/modalAlert.js";
 import gameStorage from "../storeGame.js";
 import listOfGames from "../listOfGames.js";
-import savedGames from "../Board/savedGames.js";
-import gameFeatures from "../Board/gameFeatures.js";
 let createGame = () => {
   $.ajax({
       url: apiUrl.apiUrl + "/games",

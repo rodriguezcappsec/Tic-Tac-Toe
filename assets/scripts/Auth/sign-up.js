@@ -1,6 +1,4 @@
 import apiUrl from "../config.js";
-import chngPassEvents from "./log-in.js";
-import config from "../store.js";
 import modalAlert from "../UIBehavior/modalAlert.js";
 
 
