@@ -3,7 +3,7 @@ import modalAlert from "../UIBehavior/modalAlert.js";
 import apiUrl from "../config.js";
 import selectedId from "../saveToSelectedId.js";
 import storedGames from "../listOfGames.js";
-import oldGames from "../oldGamesStorage.js";
+import oldGames from "../oldGamesStorage.js"
 let indexValue = (board, position, winner) => {
 
   let normalBoard = [];
@@ -20,17 +20,18 @@ let indexValue = (board, position, winner) => {
   });
 }
 let renderOldGames = (winner, games) => {
-
   if (winner) {
     for (let index = 0; index < games.length; index++) {
-      $('#list-of-oldgames').append("<li>" +
-        `<a class="clickToStart" id="${games[index]}" href="#">Game ${index + 1}</a>` + "</li>")
+      if ($(`#${games[index]}`).attr('id') != games[index]) {
+        $('#list-of-oldgames').append("<li>" +
+          `<a class="clickToShow" id="${games[index]}" href="#">Game ${index + 1}</a>` + "</li>")
+      }
     }
   }
 }
 let over = (isWinner) => {
   if (isWinner) {
-    oldGames.push(selectedId.gameId);
+    oldGames.olds.push(selectedId.gameId);
     let index = storedGames.gameIds.indexOf(selectedId.gameId);
     if (index > -1) {
       storedGames.gameIds.splice(index, 1);
@@ -42,7 +43,7 @@ let over = (isWinner) => {
 
 let updateGame = (board, position, win) => {
   over(win);
-  // renderOldGames(win, oldGames);
+  renderOldGames(win, oldGames.olds);
   $.ajax({
       url: apiUrl.apiUrl + `/games/${selectedId.gameId}`,
       method: "PATCH",
@@ -59,8 +60,8 @@ let updateGame = (board, position, win) => {
         }
       }
     })
-    .then(() => {
-      // console.log(`${JSON.stringify(data)}`);
+    .then((data) => {
+      console.log(oldGames.olds)
     })
     .catch(() => {
       modalAlert("Game couldn't be saved!");

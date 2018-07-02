@@ -19,7 +19,6 @@ let loadGame = () => {
         loadedGame.cells = data.game.cells;
         selectedId.gameId = data.game.id;
         loadToBoard();
-        // console.log(data.game.id);
       })
       .catch(() => {
         modalAlert("Game couldn't be loaded!");

@@ -1,5 +1,5 @@
 let oldGames = {
-  oldgames: []
+  olds: []
 }
 
-export default oldGames.oldgames;
+export default oldGames;

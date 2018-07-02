@@ -19,7 +19,6 @@ let createBoard = (tdEvents) => {
     table.appendChild(tr);
   }
   count = -1;
-  //Add click event to each TD, right after the table is created.
   tdEvents();
 }
 export default createBoard;
