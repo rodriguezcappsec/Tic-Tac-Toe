@@ -59,12 +59,8 @@ let winner = arr => {
       clickCounter = 0;
       boolSwitcher = false;
       gameOver = true;
-      // setTimeout(() => {
-      //   document
-      //     .querySelectorAll("#tictactoe td")
-      //     .forEach(e => (e.innerHTML = ""));
-      // }, 1000);
       modalAlert(`The winner is : Player ${arr[index][0]} --> Row ${index + 1}`, "Congratulations!!", "true");
+      $(`#Player_${arr[index][0]}`).text(Number($(`#Player_${arr[index][0]}`).text()) + 1)
     }
   }
   //Vertical Checking
@@ -82,11 +78,7 @@ let winner = arr => {
             modalAlert(`The winner is : Player ${vtclChecker[0]} --> Column ${y + 1}`, "Congratulations!!", true);
             boolSwitcher = false;
             gameOver = true;
-            // setTimeout(() => {
-            //   document
-            //     .querySelectorAll("#tictactoe td")
-            //     .forEach(e => (e.innerHTML = ""));
-            // }, 1000);
+          $(`#Player_${vtclChecker[0]}`).text(Number($(`#Player_${vtclChecker[0]}`).text()) + 1)
           }
         }
       }
@@ -105,11 +97,7 @@ let winner = arr => {
           modalAlert(`The winner is : Player ${dgnlChecker[0]} --> Diagonal ${1}`, "Congratulations!!", true);
           boolSwitcher = false;
           gameOver = true;
-          // setTimeout(() => {
-          //   document
-          //     .querySelectorAll("#tictactoe td")
-          //     .forEach(e => (e.innerHTML = ""));
-          // }, 1000);
+          $(`#Player_${dgnlChecker[0]}`).text(Number($(`#Player_${dgnlChecker[0]}`).text()) + 1)
         }
       }
     }
@@ -134,11 +122,7 @@ let winner = arr => {
           );
           boolSwitcher = false;
           gameOver = true;
-          // setTimeout(() => {
-          //   document
-          //     .querySelectorAll("#tictactoe td")
-          //     .forEach(e => (e.innerHTML = ""));
-          // }, 1000);
+          $(`#Player_${secondDgnlChecker[0]}`).text(Number($(`#Player_${secondDgnlChecker[0]}`).text()) + 1)
         }
       }
     }
@@ -150,7 +134,6 @@ let winner = arr => {
     vtclWinner == false &&
     dgnlWinner == false
   ) {
-    gameOver = false;
     modalAlert("Raw Game", "No winner!");
     clickCounter = 0;
     setTimeout(() => {
@@ -158,6 +141,7 @@ let winner = arr => {
         .querySelectorAll("#tictactoe td")
         .forEach(e => (e.innerHTML = ""));
     }, 1000);
+    $('#Tie_games').text(Number($('#Tie_games').text()) + 1)
   }
 };
 

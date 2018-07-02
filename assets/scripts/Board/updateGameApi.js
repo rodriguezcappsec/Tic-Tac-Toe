@@ -3,7 +3,7 @@ import modalAlert from "../UIBehavior/modalAlert.js";
 import apiUrl from "../config.js";
 import selectedId from "../saveToSelectedId.js";
 import storedGames from "../listOfGames.js";
-import oldGames from "../oldGamesStorage.js"
+import oldGames from "../oldGamesStorage.js";
 let indexValue = (board, position, winner) => {
 
   let normalBoard = [];
@@ -19,6 +19,7 @@ let indexValue = (board, position, winner) => {
     winner: winner
   });
 }
+
 let renderOldGames = (winner, games) => {
   if (winner) {
     for (let index = 0; index < games.length; index++) {
@@ -29,6 +30,7 @@ let renderOldGames = (winner, games) => {
     }
   }
 }
+
 let over = (isWinner) => {
   if (isWinner) {
     oldGames.olds.push(selectedId.gameId);
@@ -40,10 +42,8 @@ let over = (isWinner) => {
   }
 }
 
-
 let updateGame = (board, position, win) => {
   over(win);
-  renderOldGames(win, oldGames.olds);
   $.ajax({
       url: apiUrl.apiUrl + `/games/${selectedId.gameId}`,
       method: "PATCH",
@@ -61,7 +61,7 @@ let updateGame = (board, position, win) => {
       }
     })
     .then((data) => {
-      console.log(oldGames.olds)
+      data.game.over ? renderOldGames(win, oldGames.olds) : '';
     })
     .catch(() => {
       modalAlert("Game couldn't be saved!");

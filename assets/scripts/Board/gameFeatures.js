@@ -7,10 +7,25 @@ let gameOptions = () => {
   $('#RenderGame').append( /*html*/ `
   <div class="col-md-3 shadow top-100 " id="gameOptions">
       <div class="shadow" id="createLoadOld">
-          <h5 class="font-16">Game options</h5>
+          <h5 class="font-16">New Game</h5>
           <ul style="list-style:none">
             <li>
               <a id="createGame" href="#">Create Game</a>
+            </li>
+            </ul>
+            <h5 class="font-16">Wins</h5>
+            <ul style="list-style:none">
+            <li>
+              <label>Player X: </label>
+              <a id="Player_X" href="#">0</a>
+            </li>
+            <li>
+              <label>Player O: </label>
+            <a id="Player_O" href="#">0</a>
+            </li>
+            <li>
+             <label>Tie Games: </label>
+            <a id="Tie_games" href="#">0</a>
             </li>
             </ul>
             <h5 class="font-16">Old games</h5>
