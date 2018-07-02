@@ -1,11 +1,11 @@
 import createGame from "./createGameApi";
 import ticTacToe from "./board";
 import savedGames from "./savedGames.js";
-
+import loadGame from "../Board/loadGameApi.js";
 let gameOptions = () => {
 
   $('#RenderGame').append( /*html*/ `
-  <div class="col-md-3 shadow top-100 " id="gameOptions">
+  <div class="col-md-3 shadow top-100 " id="gameOptions" style="margin: 100px 10px 0 10px">
       <div class="shadow" id="createLoadOld">
           <h5 class="font-16">New Game</h5>
           <ul style="list-style:none">
@@ -41,7 +41,7 @@ let gameOptions = () => {
     $('#Games').remove();
     $('#theGame').remove();
     $("#RenderGame").append( /*html*/ `
-    <div id="theGame" class="theGame">
+    <div id="theGame" class="theGame" style="margin: 0px 10px 0 10px">
     <div class="col-md-3 shadow top-100" style="width:500px" id="aydio">
         <h4 id="turn"></h4>
          <br />
@@ -51,7 +51,7 @@ let gameOptions = () => {
     </div>
         `);
     $("#RenderGame").append( /*html*/ `
-     <div class="col-md-3 shadow top-100 " id="Games">
+     <div class="col-md-3 shadow top-100 " id="Games" style="margin: 100px 10px 0 10px">
       <div>
           <h5 class="font-16">Games</h5>
           <ul style="list-style:none" id="list-of-games">

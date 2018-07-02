@@ -1,7 +1,4 @@
 # Tic Tac Toe
-```m
-This is a tictactoe game project that I had to develop for my Web Development Immersive class.
-```
 
 ### How it works?
 ```m
@@ -34,3 +31,5 @@ This is a tictactoe game project that I had to develop for my Web Development Im
 4-As a player I want to save the state of my play.
 5-As a player I want to create as many games as I want and see a list of the games I created.
 ```
+
+

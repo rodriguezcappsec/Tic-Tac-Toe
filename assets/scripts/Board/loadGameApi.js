@@ -5,7 +5,6 @@ import selectedId from "../saveToSelectedId.js"
 import loadToBoard from "./loadToBoard.js";
 import modalAlert from "../UIBehavior/modalAlert.js";
 
-let gameArray = undefined;
 let loadGame = () => {
   $('#list-of-games li a').on('click', (event) => {
     $.ajax({
@@ -25,7 +24,4 @@ let loadGame = () => {
       });
   })
 }
-export default {
-  loadGame,
-  gameArray
-};
+export default  loadGame

@@ -5,6 +5,8 @@ import modalAlert from "../UIBehavior/modalAlert.js";
 import changePassModal from "../UIBehavior/changePasswordModal";
 import changePasswordApi from "./change-password.js"
 import gameFeatures from "../Board/gameFeatures";
+import loadGame from "../Board/loadGameApi.js";
+import createGame from '../Board/createGameApi.js';
 
 let loginUpEvents = (data) => {
   config.user = data.user;
@@ -22,6 +24,7 @@ let loginUpEvents = (data) => {
   $("form").trigger('reset');
   $("#userLoged").text(config.user.email);
   $("#menu").show();
+  createGame();
 }
 
 let logIn = () => {

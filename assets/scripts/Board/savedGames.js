@@ -6,6 +6,6 @@ let gameList = () => {
     $('#list-of-games').append("<li>" +
       `<a class="clickToStart" id="${listOfGames.gameIds[index]}" href="#">Game ${index+1}</a>` + "</li>")
   }
-  loadGame.loadGame();
+  loadGame()
 }
 export default gameList;

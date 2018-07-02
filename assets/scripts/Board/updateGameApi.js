@@ -4,6 +4,7 @@ import apiUrl from "../config.js";
 import selectedId from "../saveToSelectedId.js";
 import storedGames from "../listOfGames.js";
 import oldGames from "../oldGamesStorage.js";
+
 let indexValue = (board, position, winner) => {
 
   let normalBoard = [];
@@ -20,16 +21,6 @@ let indexValue = (board, position, winner) => {
   });
 }
 
-let renderOldGames = (winner, games) => {
-  if (winner) {
-    for (let index = 0; index < games.length; index++) {
-      if ($(`#${games[index]}`).attr('id') != games[index]) {
-        $('#list-of-oldgames').append("<li>" +
-          `<a class="clickToShow" id="${games[index]}" href="#">Game ${index + 1}</a>` + "</li>")
-      }
-    }
-  }
-}
 
 let over = (isWinner) => {
   if (isWinner) {
@@ -39,6 +30,17 @@ let over = (isWinner) => {
       storedGames.gameIds.splice(index, 1);
     }
     $(`#${selectedId.gameId}`).remove();
+  }
+}
+
+let renderOldGames = (winner, games) => {
+  if (winner) {
+    for (let index = 0; index < games.length; index++) {
+      if ($(`#${games[index]}`).attr('id') != games[index]) {
+        $('#list-of-oldgames').append("<li>" +
+          `<a class="clickToShow" id="${games[index]}" href="#">Game ${index + 1}</a>` + "</li>")
+      }
+    }
   }
 }
 
