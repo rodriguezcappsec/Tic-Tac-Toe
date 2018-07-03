@@ -27,10 +27,9 @@
 
 ### Wireframes
 
-```m
 [User LogIn page] (https://i.imgur.com/UqaUFNg.png)
 [User logedIn page] (https://i.imgur.com/aObjhfO.png)
-```
+
 ### Problem Solving Strategy
 
 ```m
