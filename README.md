@@ -31,7 +31,7 @@
 user login page wireframe -->https://i.imgur.com/UqaUFNg.png
 user loged wireframe --> https://i.imgur.com/aObjhfO.png
 ```
-##Problem Solving Strategy
+## Problem Solving Strategy
 
 ```m
 I tried to write my code as modular as possible creating js files that I knew I was going to re-use to avoid code repetition.
