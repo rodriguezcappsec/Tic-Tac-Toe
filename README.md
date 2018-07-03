@@ -16,13 +16,6 @@
 3-Bootstrap
 ```
 
-### Bugs
-
-```m
-1-User needs to click twice to be able to create a game
-2-When the game is raw and the user load the same game again, it will not say is raw again.
-3-The UI for the game is not well centered and the style needs some fixes.
-```
 ### User Stories
 ```m
 1-As a player I want to create an account to play.
@@ -32,4 +25,16 @@
 5-As a player I want to create as many games as I want and see a list of the games I created.
 ```
 
+### Wireframes
 
+```m
+user login page wireframe -->https://i.imgur.com/UqaUFNg.png
+user loged wireframe --> https://i.imgur.com/aObjhfO.png
+```
+##Problem Solving Strategy
+
+```m
+I tried to write my code as modular as possible creating js files that I knew I was going to re-use to avoid code repetition.
+The board where you can play the game is rendered dynamically with javascript. I tried to not let the browser load too much HTMl code so the 
+loading is faster, that's why the board is rendering dynamically. The counting of won games, is generated right away when the user wins or lose.
+```
