@@ -4,7 +4,8 @@ body {
   background-color: #b3b3b3;
 }
 
-table {
+table,
+.boardOldGames {
   text-align: center;
   margin: 0 auto;
   color: rgb(46, 46, 46);
@@ -18,12 +19,20 @@ td:hover {
   cursor: pointer;
 }
 
+.boardOldGames tr td:hover {
+  cursor: default;
+}
+
+.bigger {
+  padding: 20px;
+}
+
 td {
   border: 1px solid rgb(255, 0, 0);
-  height: 61px;
-  width: 70px;
+  height: 81px;
+  width: 90px;
   text-align: center;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: bold;
 }
 
@@ -33,11 +42,17 @@ td {
   margin: 0 auto;
 }
 
+#oldGameBoard {
+  top: 30%;
+  margin: 0 auto;
+}
+
 #aydio {
   text-align: center;
 }
 
-.tictactoe {
+.tictactoe,
+  {
   margin: 10px auto;
 }
 

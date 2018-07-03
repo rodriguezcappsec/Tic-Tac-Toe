@@ -4,8 +4,9 @@ import logOut from "../Auth/log-out.js";
 import modalAlert from "../UIBehavior/modalAlert.js";
 import changePassModal from "../UIBehavior/changePasswordModal";
 import changePasswordApi from "./change-password.js"
-import gameFeatures from "../Board/gameFeatures";
+import gameFeatures from "../Board/gameFeatures.js";
 import createGame from '../Board/createGameApi.js';
+import oldGamesModal from "../UIBehavior/oldGamesModal.js";
 
 let loginUpEvents = (data) => {
   config.user = data.user;
@@ -15,6 +16,7 @@ let loginUpEvents = (data) => {
                 <a id="log-out">Log Out</a>
               </li>`);
   changePassModal();
+
   $("#user-menu").append( /*html*/ `<li>
                 <a id="password-changed" data-toggle="modal" data-target="#exampleModal">Change Password</a>
               </li>`);
@@ -24,6 +26,7 @@ let loginUpEvents = (data) => {
   $("#userLoged").text(config.user.email);
   $("#menu").show();
   createGame();
+  // oldGamesModal();
 }
 
 let logIn = () => {

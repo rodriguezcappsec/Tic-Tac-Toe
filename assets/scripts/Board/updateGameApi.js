@@ -4,7 +4,7 @@ import apiUrl from "../config.js";
 import selectedId from "../saveToSelectedId.js";
 import storedGames from "../listOfGames.js";
 import oldGames from "../oldGamesStorage.js";
-
+import showOldGames from "../Board/showOldGamesApi.js";
 let indexValue = (board, position, winner) => {
 
   let normalBoard = [];
@@ -38,7 +38,7 @@ let renderOldGames = (winner, games) => {
     for (let index = 0; index < games.length; index++) {
       if ($(`#${games[index]}`).attr('id') != games[index]) {
         $('#list-of-oldgames').append("<li>" +
-          `<a class="clickToShow" id="${games[index]}" href="#">Game ${index + 1}</a>` + "</li>")
+          `<a class="clickToShow" data-toggle="modal" data-target="#oldGameBoard" id="${games[index]}" href="#">Game ${index + 1}</a>` + "</li>")
       }
     }
   }
@@ -63,7 +63,7 @@ let updateGame = (board, position, win) => {
       }
     })
     .then((data) => {
-      data.game.over ? renderOldGames(win, oldGames.olds) : '';
+      data.game.over ? (renderOldGames(win, oldGames.olds), showOldGames()) : '';
     })
     .catch(() => {
       modalAlert("Game couldn't be saved!");

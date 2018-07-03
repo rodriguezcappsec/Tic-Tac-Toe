@@ -24,4 +24,4 @@ let loadGame = () => {
       });
   })
 }
-export default  loadGame
+export default loadGame
