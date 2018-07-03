@@ -23,6 +23,7 @@
 3-As a player I want to logout whenever I want.
 4-As a player I want to create as many games as I want and see a list of the games I created.
 5-As a player I want to see the list of games that are over and be able to see how that game was over.
+6-As a player I want to see who won the game, if the X won or the O won the game.
 ```
 
 ### Wireframes
