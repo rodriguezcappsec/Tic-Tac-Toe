@@ -28,8 +28,8 @@
 ### Wireframes
 
 ```m
-user login page wireframe -->https://i.imgur.com/UqaUFNg.png
-user loged wireframe --> https://i.imgur.com/aObjhfO.png
+[User LogIn page] (https://i.imgur.com/UqaUFNg.png)
+[User logedIn page] (https://i.imgur.com/aObjhfO.png)
 ```
 ### Problem Solving Strategy
 
