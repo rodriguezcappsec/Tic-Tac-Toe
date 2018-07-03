@@ -21,8 +21,8 @@
 1-As a player I want to create an account to play.
 2-As a player I want to be able to login.
 3-As a player I want to logout whenever I want.
-4-As a player I want to save the state of my play.
-5-As a player I want to create as many games as I want and see a list of the games I created.
+4-As a player I want to create as many games as I want and see a list of the games I created.
+5-As a player I want to see the list of games that are over and be able to see how that game was over.
 ```
 
 ### Wireframes
