@@ -1,8 +1,12 @@
 import config from "../store.js";
 import apiUrl from "../config.js";
 import modalAlert from "../UIBehavior/modalAlert.js";
+import oldGamesStorage from "../oldGamesStorage.js";
+import listOfGames from "../listOfGames.js";
 let logOutEvents = () => {
   delete config.user;
+  oldGamesStorage.olds = [];
+  listOfGames.gameIds = [];
   $("#theGame").html('');
   $("#user-menu").html('');
   $("#userAuthentication").show();
@@ -25,7 +29,7 @@ let logOut = () => {
         logOutEvents();
       })
       .catch((data) => {
-        modalAlert("error loging out user","Alert!!");
+        modalAlert("error loging out user", "Alert!!");
       });
   });
 };
