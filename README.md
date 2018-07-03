@@ -27,8 +27,8 @@
 
 ### Wireframes
 
-[User LogIn page] (https://i.imgur.com/UqaUFNg.png)
-[User logedIn page] (https://i.imgur.com/aObjhfO.png)
+User LogIn page --> https://i.imgur.com/UqaUFNg.png
+User Loged page --> https://i.imgur.com/aObjhfO.png
 
 ### Problem Solving Strategy
 
