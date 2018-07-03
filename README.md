@@ -14,6 +14,8 @@
 1-Javascript
 2-Jquery
 3-Bootstrap
+4-Jquery Ajax
+5-SCSS
 ```
 
 ### User Stories
